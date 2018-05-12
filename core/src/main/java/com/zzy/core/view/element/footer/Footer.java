@@ -1,6 +1,7 @@
 package com.zzy.core.view.element.footer;
 
-import com.credithc.elf_page.view.element.Element;
+
+import com.zzy.core.view.element.Element;
 
 /**
  * @author zzy
