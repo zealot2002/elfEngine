@@ -17,6 +17,8 @@ import com.zzy.core.view.Engine;
 import com.zzy.core.view.inner.MyMultiAdapter;
 import com.zzy.core.view.inner.SpaceItemDecoration;
 
+import java.util.List;
+
 /**
  * @author zzy
  * @date 2018/2/27
@@ -66,8 +68,9 @@ public class NormalPageRender implements PageRender{
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
         adapter = new MyMultiAdapter(context,page.getBody().getDataList());
-        for(int i = 0; i< ElfEngineProxy.getInstance().getBinder().getEngineList().size(); i++){
-            Engine engine = ElfEngineProxy.getInstance().getBinder().getEngineList().get(i);
+        List<Engine> engineList = ElfEngineProxy.getInstance().getBinder().getEngineList(context,page);
+        for(int i = 0; i<engineList.size(); i++){
+            Engine engine = engineList.get(i);
             adapter.addItemViewDelegate(engine);
         }
         recyclerView.setAdapter(adapter);

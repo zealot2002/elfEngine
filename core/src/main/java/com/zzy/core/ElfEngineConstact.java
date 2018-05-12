@@ -60,6 +60,6 @@ public interface ElfEngineConstact {
 
         void showImage(final Context context, final String uri, final View view);
 
-        List<Engine> getEngineList();
+        List<Engine> getEngineList(Context context,Page page);
     }
 }
