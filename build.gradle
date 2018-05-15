@@ -31,7 +31,7 @@ ext {
     versionName = "0.1.0"
     buildToolsVersion = "26.0.2"
     compileSdkVersion = 26
-    minSdkVersion = 15
+    minSdkVersion = 19
     targetSdkVersion = 26
     supportLibraryVersion = "27.0.2"
     annotationProcessor = "1.0.3"

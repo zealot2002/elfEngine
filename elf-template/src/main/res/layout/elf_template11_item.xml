@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/elf_template_item_root"
+    >
+    <RelativeLayout
+        android:id="@+id/w0"
+        style="@style/elf_layout_690_420"
+        android:clickable="true"
+        android:background="@drawable/elf_item_selector"
+        >
+        <ImageView
+            android:id="@+id/w1"
+            style="@style/elf_iv_690_278"
+        />
+        <TextView
+            android:id="@+id/w2"
+            style="@style/elf_tv_32"
+            android:layout_below="@+id/w1"
+            android:layout_marginTop="20px"
+            android:maxEms="10"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/w3"
+            style="@style/elf_tv_22"
+            android:layout_toRightOf="@+id/w2"
+            android:layout_marginLeft="10px"
+            android:layout_alignBottom="@+id/w2"
+            />
+        <TextView
+            android:id="@+id/w4"
+            style="@style/elf_tv_32"
+            android:layout_alignBottom="@+id/w2"
+            android:layout_marginTop="8px"
+            android:layout_toLeftOf="@+id/w5"
+            android:layout_marginRight="2px"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/w5"
+            style="@style/elf_tv_22"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/w2"
+            android:layout_marginBottom="5px"
+            />
+        <TextView
+            android:id="@+id/w6"
+            style="@style/elf_tv_22"
+            android:layout_below="@+id/w2"
+            android:layout_marginTop="10px"
+            android:maxLines="2"
+            />
+    </RelativeLayout>
+</RelativeLayout>
+

@@ -1,7 +1,5 @@
 package com.zzy.core.model;
 
-import com.zzy.core.constants.CommonConstants;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

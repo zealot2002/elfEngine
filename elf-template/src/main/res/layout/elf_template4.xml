@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/elf_template_root"
+    >
+    <cn.bingoogolapple.bgabanner.BGABanner
+        android:id="@+id/banner"
+        style="@style/elf_BannerDefaultStyle"
+        android:layout_width="670px"
+        android:layout_height="200px"
+        app:banner_indicatorGravity="bottom|center_horizontal"
+        app:banner_isNeedShowIndicatorOnOnlyOnePage="false"
+        app:banner_isNumberIndicator="false"
+        app:banner_pointAutoPlayAble="true"
+        app:banner_pointContainerBackground="@android:color/transparent"
+        app:banner_pointDrawable="@drawable/elf_banner_indictor_selector"
+        app:banner_transitionEffect="defaultEffect"/>
+
+</RelativeLayout>

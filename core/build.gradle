@@ -25,7 +25,7 @@ dependencies {
     compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
     compile "com.android.support:percent:$rootProject.ext.supportLibraryVersion"
 
-    compile 'com.github.zealot2002:ACommonLib:0.2.6'
+    compile 'com.github.zealot2002:ACommonLib:0.2.7'
     compile 'com.zhy:base-rvadapter:3.0.3'
     //banner
     compile 'cn.bingoogolapple:bga-banner:2.2.4@aar'

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.zzy.commonlib.base.BaseLoadingView;
 import com.zzy.commonlib.base.BasePresenter;
+import com.zzy.core.ElfConstact;
 import com.zzy.core.model.Page;
 
 
@@ -18,6 +19,6 @@ public interface PageConstact {
     }
 
     interface Presenter extends BasePresenter {
-        void getPageData(Context context, final String pageCode, boolean bShow, int pageNum);
+        void getPageData(Context context, boolean bShow, int pageNum, ElfConstact.RefreshDataProvider dataProvider);
     }
 }

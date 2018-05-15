@@ -1,19 +1,21 @@
-package com.zzy.core.view.render.page;
+package com.zzy.core.view.render.page.impl;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zzy.core.ElfEngineProxy;
+import com.zzy.core.ElfProxy;
 import com.zzy.core.R;
 import com.zzy.core.model.Page;
 import com.zzy.core.statis.StatisticsTool;
 import com.zzy.core.utils.MyExceptionHandler;
-import com.zzy.core.view.Engine;
+import com.zzy.core.view.render.TemplateRender;
 import com.zzy.core.view.inner.MyMultiAdapter;
 import com.zzy.core.view.inner.SpaceItemDecoration;
 
@@ -23,8 +25,8 @@ import java.util.List;
  * @author zzy
  * @date 2018/2/27
  */
-public class NormalPageRender implements PageRender{
-    public static final String TAG = "MultiRecyclePageRender";
+public class NormalPageRender implements com.zzy.core.view.render.page.PageRender {
+    public static final String TAG = "NormalPageRender";
     private View rootView;
     private Context context;
     private RecyclerView recyclerView;
@@ -68,13 +70,13 @@ public class NormalPageRender implements PageRender{
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
         adapter = new MyMultiAdapter(context,page.getBody().getDataList());
-        List<Engine> engineList = ElfEngineProxy.getInstance().getBinder().getEngineList(context,page);
-        for(int i = 0; i<engineList.size(); i++){
-            Engine engine = engineList.get(i);
-            adapter.addItemViewDelegate(engine);
+        SparseArray<TemplateRender> templateRenderList = ElfProxy.getInstance().getBinder().getTemplateRenderList(context,page);
+        for(int i = 0; i< templateRenderList.size(); i++){
+            TemplateRender templateRender = templateRenderList.valueAt(i);
+            adapter.addItemViewDelegate(templateRender);
         }
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        ElfEngineProxy.getInstance().getBinder().showImage(context,page.getBackground(),recyclerView);
+        ElfProxy.getInstance().getBinder().onShowImage(context, Uri.parse(page.getBackground()),recyclerView);
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="elf_divider">#e2e2e2</color>
+    <color name="elf_transparent_black_1">#10333333</color><!--半透黑色 10%-->
+
+    <color name="elf_text_black">#ff2a2d47</color>
+    <color name="elf_text_red">#ffc6654d</color>
+    <color name="elf_text_gray">#ff858691</color>
+
+    <color name="elf_white">#ffffff</color>
+
+</resources>

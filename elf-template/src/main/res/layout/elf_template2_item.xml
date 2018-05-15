@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:id="@id/elf_rootView"
+    >
+    <RelativeLayout
+        android:id="@+id/w0"
+        android:layout_width="223px"
+        android:layout_height="150px"
+        android:clickable="true"
+        android:background="@drawable/elf_item_selector"
+        >
+        <ImageView
+            android:id="@+id/w1"
+            style="@style/elf_iv_110_110"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:id="@+id/w2"
+            android:layout_below="@+id/w1"
+            android:layout_centerHorizontal="true"
+            style="@style/elf_tv_24"
+            />
+    </RelativeLayout>
+</LinearLayout>
+

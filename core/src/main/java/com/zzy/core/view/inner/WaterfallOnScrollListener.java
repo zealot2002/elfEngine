@@ -2,6 +2,7 @@ package com.zzy.core.view.inner;
 
 import android.support.v7.widget.RecyclerView;
 
+import com.zzy.core.utils.L;
 import com.zzy.core.utils.ViewUtils;
 
 public abstract class WaterfallOnScrollListener extends  RecyclerView.OnScrollListener{
@@ -19,8 +20,8 @@ public abstract class WaterfallOnScrollListener extends  RecyclerView.OnScrollLi
         super.onScrolled(recyclerView, dx, dy);
         if(!loading){
             if(ViewUtils.isSlideToBottom(recyclerView)){
-                onLoadMore();
                 loading = true;
+                onLoadMore();
             }
         }
     }

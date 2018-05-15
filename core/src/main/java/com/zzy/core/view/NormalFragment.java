@@ -11,33 +11,31 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zzy.commonlib.core.BusHelper;
-import com.zzy.core.ElfEngineConstact;
+import com.zzy.core.ElfConstact;
 import com.zzy.core.R;
 import com.zzy.core.model.Page;
 import com.zzy.core.view.render.footer.FooterRender;
 import com.zzy.core.view.render.header.HeaderRender;
-import com.zzy.core.view.render.page.NormalPageRender;
-import com.zzy.core.view.render.page.PageRender;
-
+import com.zzy.core.view.render.page.impl.NormalPageRender;
 /**
  * @author zzy
  * @date 2018/2/28
  */
-public class ElfFragment extends Fragment{
-    private static final String TAG = "ElfFragment";
+public class NormalFragment extends Fragment{
+    private static final String TAG = "NormalFragment";
     private View rootView;
     private Context context;
     private ViewGroup container;
 
-    private PageRender pageRender;/*page and body*/
+    private com.zzy.core.view.render.page.PageRender pageRender;/*page and body*/
     private HeaderRender headerRender;
     private FooterRender footerRender;
-    private ElfEngineConstact.DataProvider dataProvider;
+    private ElfConstact.NormalDataProvider dataProvider;
 /********************************************************************************************************/
-    public ElfFragment(){}
+    public NormalFragment(){}
 
     @SuppressLint("ValidFragment")
-    public ElfFragment(ElfEngineConstact.DataProvider dataProvider){
+    public NormalFragment(ElfConstact.NormalDataProvider dataProvider){
         this.dataProvider = dataProvider;
     }
     @Nullable
@@ -52,8 +50,15 @@ public class ElfFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Page page = dataProvider.getPageData(context);
-        updatePage(page);
+        if(dataProvider!=null){
+            dataProvider.onGetDataEvent(context,new ElfConstact.Callback() {
+                @Override
+                public void onCallback(boolean bResult, Object data) {
+                    Page page = (Page) data;
+                    updatePage(page);
+                }
+            });
+        }
     }
 
     public void updatePage(Page page) {
