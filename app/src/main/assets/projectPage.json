@@ -1,0 +1,18 @@
+{
+      "pageType": "pageGroup",
+      "pageList":
+      [
+        {
+        "name": "网贷",
+        "action": "netLoanPage"
+      }, {
+        "name": "保险",
+        "action": "insurancePage"
+      }, {
+        "name": "基金",
+        "action": "fundPage"
+      }
+      ],
+      "navigatorType": "1",
+      "pageCode": "projectPage"
+}

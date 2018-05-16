@@ -3,7 +3,7 @@ package com.zzy.core.presenter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.zzy.commonlib.util.NetUtils;
+import com.zzy.commonlib.utils.NetUtils;
 import com.zzy.core.ElfConstact;
 import com.zzy.core.constact.PageConstact;
 import com.zzy.core.model.Page;
@@ -29,7 +29,7 @@ public class PagePresenter implements PageConstact.Presenter {
     }
 
     @Override
-    public void getPageData(final Context context, boolean bShow,final int pageNum, ElfConstact.RefreshDataProvider dataProvider) {
+    public void getPageData(final Context context, boolean bShow,final int pageNum, ElfConstact.DataProvider dataProvider) {
         if (!NetUtils.isNetworkAvailable(context)) {
             //do nothing..just go on
             view.showDisconnect();
@@ -41,6 +41,7 @@ public class PagePresenter implements PageConstact.Presenter {
         dataProvider.onGetDataEvent(context, pageNum, new ElfConstact.Callback() {
             @Override
             public void onCallback(boolean bResult, Object data) {
+                view.closeLoading();
                 if(bResult){
                     try{
                         Page page = (Page) data;

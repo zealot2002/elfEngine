@@ -19,7 +19,7 @@ public class Page extends Elf<Page> implements Serializable {
     private String name;  //page group专用，用来显示导航text，别无它用
     private String code;  //page的编号，也是page data的请求参数，统计也用它区分page
     private String background;
-    private int type;
+    private String type;
     private Body body;    //just a list
     private Header header;// TODO: 2018/3/17
     private Footer footer;// TODO: 2018/3/17
@@ -50,11 +50,11 @@ public class Page extends Elf<Page> implements Serializable {
         this.background = background;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 

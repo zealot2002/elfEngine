@@ -10,7 +10,7 @@ import java.util.HashMap;
  */
 
 public class ImageUriHelper {
-    public static final String LOCAL_URI_PRE = "local://";
+    public static final String LOCAL_URI_PREFIX = "local://";
     private HashMap<String,Uri> localUriMap;
     /*******************************************************************************************************/
     public static ImageUriHelper getInstance(){
@@ -22,7 +22,7 @@ public class ImageUriHelper {
     private ImageUriHelper() {}
     public void init(Context context){
         localUriMap = new HashMap<>();
-        localUriMap.put(LOCAL_URI_PRE+"ic_launcher",
+        localUriMap.put(LOCAL_URI_PREFIX +"ic_launcher",
                 Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
                                             ic_launcher));
     }

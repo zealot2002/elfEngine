@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.zzy.commonlib.base.BaseActivity;
-import com.zzy.commonlib.util.FileUtils;
+import com.zzy.commonlib.utils.FileUtils;
 import com.zzy.core.ElfConstact;
 import com.zzy.core.ElfProxy;
 import com.zzy.core.model.Page;
@@ -25,11 +25,11 @@ public class HomeActivity extends BaseActivity {
     }
 
     private Fragment getNormalFragment(){
-        return ElfProxy.getInstance().makeNormalPage(new ElfConstact.NormalDataProvider() {
+        return ElfProxy.getInstance().makeNormalPage(ElfConstants.ELF_PAGE_HOME,new ElfConstact.DataProvider() {
             @Override
-            public void onGetDataEvent(Context context, ElfConstact.Callback callback) {
+            public void onGetDataEvent(Context context, int pageNum, ElfConstact.Callback callback) {
                 try{
-                    String data = FileUtils.readFileFromAssets(HomeActivity.this,"home.json");
+                    String data = FileUtils.readFileFromAssets(HomeActivity.this,"projectPage.json");
                     Page page = PageJsonParser.parse(data);
                     callback.onCallback(true,page);
                 }catch(Exception e){
@@ -40,11 +40,11 @@ public class HomeActivity extends BaseActivity {
     }
 
     private Fragment getRefreshFragment() {
-        return ElfProxy.getInstance().makeRefreshPage(new ElfConstact.RefreshDataProvider() {
+        return ElfProxy.getInstance().makeRefreshPage(ElfConstants.ELF_PAGE_HOME,new ElfConstact.DataProvider() {
             @Override
             public void onGetDataEvent(Context context, int pageNum, ElfConstact.Callback callback) {
                 try{
-                    String data = FileUtils.readFileFromAssets(HomeActivity.this,"home.json");
+                    String data = FileUtils.readFileFromAssets(HomeActivity.this,"projectPage.json");
                     Page page = PageJsonParser.parse(data);
                     callback.onCallback(true,page);
                 }catch(Exception e){

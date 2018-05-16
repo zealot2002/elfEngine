@@ -1,11 +1,13 @@
 package com.zzy.elfengine;
 
+import com.zzy.core.ElfConstact;
 import com.zzy.core.model.Item;
 import com.zzy.core.model.Page;
 import com.zzy.core.model.Section;
 import com.zzy.core.model.Widget;
 import com.zzy.core.view.element.body.Body;
 import com.zzy.core.view.element.body.PageBody;
+import com.zzy.core.view.element.body.PageListBody;
 import com.zzy.elf_template.template.TemplateHelper;
 
 import org.json.JSONArray;
@@ -27,11 +29,35 @@ public class PageJsonParser {
         JSONObject obj = (JSONObject) jsonParser.nextValue();
 
         Page page = new Page();
+        if (!obj.has("pageCode")) {
+            throw new Exception("page must have a pageCode!");
+        }
+        page.setCode(obj.getString("pageCode"));
+        if (!obj.has("pageType")) {
+            throw new Exception("page must have a pageType!");
+        }
         String pageType = obj.getString("pageType");
+        page.setType(pageType);
         //fill body
-        Body body = new PageBody();
-        List<Section> sectionList = parseSectionList(obj);
-        body.setDataList(sectionList);
+        Body body;
+        if(pageType.equals(ElfConstact.PAGE_TYPE_SINGLE_PAGE)){
+            body = new PageBody();
+            List<Section> sectionList = parseSectionList(obj);
+            body.setDataList(sectionList);
+        }else if(pageType.equals(ElfConstact.PAGE_TYPE_PAGE_GROUP)){
+            page.setType(ElfConstact.PAGE_TYPE_PAGE_GROUP);
+            body = new PageListBody();
+            JSONArray pageArray = obj.getJSONArray("pageList");
+            for (int i = 0; i < pageArray.length(); i++) {
+                JSONObject pageObj = pageArray.getJSONObject(i);
+                Page p = new Page();
+                p.setName(pageObj.getString("name"));
+                p.setCode(pageObj.getString("action"));
+                body.getDataList().add(p);
+            }
+        }else{
+            throw new JSONException("unknown pageType!");
+        }
         page.setBody(body);
         //fill others
         if (obj.has("background")) {
@@ -96,7 +122,7 @@ public class PageJsonParser {
                     widget.setBorder(widgetObj.getString("border"));
                 }
                 if (widgetObj.has("image")) {
-                    widget.setImage(widgetObj.getString("image"));
+                    widget.setImageUri(widgetObj.getString("image"));
                 }
                 item.getWidgetList().add(widget);
             }

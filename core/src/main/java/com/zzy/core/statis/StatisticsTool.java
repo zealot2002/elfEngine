@@ -32,17 +32,4 @@ public class StatisticsTool {
             }
         }
     }
-    private static void sighItemList(List<Item> dataList, String pageName){
-        for(int j=0;j<dataList.size();++j){
-            for(Widget w:dataList.get(j).getWidgetList()){
-                if(w.getStatisInfo().getPageName()!=null){
-                    continue;
-                }
-                w.getStatisInfo().setPageName(pageName);
-                w.getStatisInfo().setSectionId(1);  /*只有1个section*/
-                w.getStatisInfo().setItemId(j+1);
-                w.getStatisInfo().setWidgetId(w.getId());
-            }
-        }
-    }
 }

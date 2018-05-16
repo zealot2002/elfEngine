@@ -8,11 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
+import com.hwangjr.rxbus.thread.EventThread;
 import com.zzy.commonlib.core.BusHelper;
 import com.zzy.core.ElfConstact;
 import com.zzy.core.R;
 import com.zzy.core.base.BaseLoadingFragment;
 import com.zzy.core.constact.PageConstact;
+import com.zzy.core.constants.BusConstants;
 import com.zzy.core.constants.CommonConstants;
 import com.zzy.core.model.Page;
 import com.zzy.core.presenter.PagePresenter;
@@ -41,12 +45,13 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     private HeaderRender headerRender;
     private FooterRender footerRender;
 
-    private ElfConstact.RefreshDataProvider dataProvider;
+    private ElfConstact.DataProvider dataProvider;
 /********************************************************************************************************/
     public RefreshFragment(){}
 
     @SuppressLint("ValidFragment")
-    public RefreshFragment(ElfConstact.RefreshDataProvider dataProvider){
+    public RefreshFragment(String pageCode,ElfConstact.DataProvider dataProvider){
+        this.pageCode = pageCode;
         this.dataProvider = dataProvider;
     }
     @Nullable
@@ -99,36 +104,30 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
         }
     };
 
-//    @Override
-//    public void onHiddenChanged(boolean hidden) {
-//        super.onHiddenChanged(hidden);
-//        Mylog.e(TAG,"onHiddenChanged");
-//        if(!hidden){
-//            lazyLoad();
-//        }
-//    }
-//
-//    private void lazyLoad() {
-//
-//    }
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if(!hidden){
+            if(needReload){
+                needReload = false;
+                reload(true);
+            }
+        }
+    }
 
     @Override
     public void onResume() {
         super.onResume();
-        L.e(TAG,"onResume");
-        if(needReload){
-            needReload = false;
-            reload(true);
-        }
+
     }
-//    @Subscribe(thread = EventThread.IMMEDIATE, tags = {@Tag(value = BusConstants.BUS_EVENT_RELOAD_PAGE)})
+    @Subscribe(thread = EventThread.IMMEDIATE, tags = {@Tag(value = BusConstants.BUS_EVENT_RELOAD_PAGE)})
     public void onReload(String s){
         L.e(TAG,pageCode+" onReload");
-//        if(s.equals(pageCode)){
+        if(s.equals(pageCode)){
             needReload = true;
-//        }
+        }
     }
-//    @Subscribe(thread = EventThread.IMMEDIATE, tags = {@Tag(value = BusConstants.BUS_EVENT_PAGEGROUP_TRANSFER_PAGE)})
+    @Subscribe(thread = EventThread.IMMEDIATE, tags = {@Tag(value = BusConstants.BUS_EVENT_PAGEGROUP_TRANSFER_PAGE)})
     public void onPageGroupTransferPage(String s){
         L.e(TAG,"onPageGroupTransferPage");
         if(s!=null){

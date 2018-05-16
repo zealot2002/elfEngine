@@ -189,6 +189,90 @@
             "textColor": "",
             "url": ""
           }]
+        },
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "http://118.26.169.244/fs-api/downloadFile.hc?fsId=FE0946B3BAB447E19A8969462AFB91F5",
+            "route": [],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "",
+            "route": ["openPage", "login"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "",
+            "route": [],
+            "visible": "1",
+            "id": "w2",
+            "text": "定利宝 DL03",
+            "textColor": "#ff2a2d47",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "",
+            "route": [],
+            "visible": "1",
+            "id": "w3",
+            "text": "剩余:0元",
+            "textColor": "#ff2a2d47",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "",
+            "route": [],
+            "visible": "1",
+            "id": "w4",
+            "text": "5.0%",
+            "textColor": "#ffc6654d",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "",
+            "route": [],
+            "visible": "1",
+            "id": "w5",
+            "text": "3个月",
+            "textColor": "#ff2a2d47",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "",
+            "route": [],
+            "visible": "1",
+            "id": "w6",
+            "text": "期望年均出借回报率约",
+            "textColor": "#ff2a2d47",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "",
+            "route": [],
+            "visible": "1",
+            "id": "w7",
+            "text": "出借期限",
+            "textColor": "#ff2a2d47",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://118.26.169.244/fs-api/downloadFile.hc?fsId=F22C39C212EF4734AD07639337C82B39",
+            "route": [],
+            "visible": "1",
+            "id": "w8",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }]
         }
       ],
       "templateId": "3",
@@ -199,7 +283,8 @@
       "itemList":
       [
         {
-          "widgetList": [{
+          "widgetList": [
+            {
             "border": "",
             "image": "",
             "route": ["openPage", "webview1", "{\"url\": \"http://testevent.duolerong.com/v1/sites/201803goldenEggs/\",\"shareUrl\": \"http://testevent.duolerong.com/v1/sites/201803goldenEggs/\",\"shareIcon\": \"http://118.26.169.244/fs-api/downloadFile.hc?fsId=82D4A1237C8E44B0823748884664F151\",\"shareTitle\": \"砸蛋标题哈哈\",\"shareSubTitle\": \"砸蛋副标题嘿嘿\"}"],
@@ -208,7 +293,8 @@
             "text": "",
             "textColor": "",
             "url": ""
-          }, {
+          },
+            {
             "border": "",
             "image": "http://118.26.169.244/fs-api/downloadFile.hc?fsId=6B0B15A68DCC456BAEEF6F6409408400",
             "route": [],
@@ -217,7 +303,8 @@
             "text": "",
             "textColor": "",
             "url": ""
-          }]
+          }
+          ]
         },
         {
           "widgetList": [{

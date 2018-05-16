@@ -74,9 +74,7 @@ public class BannerTemplateRender extends TemplateRender {
                                     &&!w.getRoute().equals("[]")
                                     &&!w.getRoute().equals("[\"\"]")){
                                 try {
-                                    MyToast.show(context,"route:"+w.getRoute());
-//                                    StatisticsTool.onClickEvent(w.getStatisInfo().toString());
-//                                    RouteTool.handleRoute(context,w.getRoute());
+                                    ElfTemplateProxy.getInstance().getBinder().onClickedEvent(context,w.getRoute(),w.getStatisInfo().toString());
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                     Toast.makeText(context,"err:"+e.toString(), Toast.LENGTH_LONG).show();
@@ -93,7 +91,7 @@ public class BannerTemplateRender extends TemplateRender {
                         for(Widget w:item.getWidgetList()){
                             //banner的图片必须配置在w1上
                             if(w.getId().equals("w1")){
-                                ElfTemplateProxy.getInstance().getBinder().onShowImage(context, Uri.parse(w.getImage()),itemView);
+                                ElfTemplateProxy.getInstance().getBinder().onShowImage(context, Uri.parse(w.getImageUri()),itemView);
                             }
                         }
                     }
@@ -104,7 +102,6 @@ public class BannerTemplateRender extends TemplateRender {
             }else{
                 banner.setAutoPlayAble(true);
             }
-//            banner.startAutoPlay();
         }catch(Exception e){
             MyExceptionHandler.handle(context,TAG,e);
         }

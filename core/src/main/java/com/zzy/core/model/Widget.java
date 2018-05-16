@@ -20,7 +20,7 @@ public class Widget extends Elf<Widget> implements Serializable{
     private String text;
     private String textColor;
     private String border;//文字边框
-    private String image;
+    private String imageUri;
 
     private StatisInfo statisInfo;/*统计专用*/
 
@@ -77,12 +77,12 @@ public class Widget extends Elf<Widget> implements Serializable{
         this.border = border;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageUri() {
+        return imageUri;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     public StatisInfo getStatisInfo() {
@@ -104,12 +104,12 @@ public class Widget extends Elf<Widget> implements Serializable{
                 Objects.equals(getText(), widget.getText()) &&
                 Objects.equals(getTextColor(), widget.getTextColor()) &&
                 Objects.equals(getBorder(), widget.getBorder()) &&
-                Objects.equals(getImage(), widget.getImage());
+                Objects.equals(getImageUri(), widget.getImageUri());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getRoute(), getVisible(), getText(), getTextColor(), getImage());
+        return Objects.hash(getId(), getRoute(), getVisible(), getText(), getTextColor(), getImageUri());
     }
 
 }

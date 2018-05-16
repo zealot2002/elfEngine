@@ -2,6 +2,7 @@ package com.zzy.elf_template;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 import android.view.View;
 
@@ -49,6 +50,11 @@ public class ElfTemplateProxy {
             @Override
             public void onShowImage(Context context, Uri imageUri, View view) {
                 mBinder.onShowImage(context,imageUri,view);
+            }
+
+            @Override
+            public Fragment onPageGroupGetFragmentEvent(Context context, String pageCode) {
+                return mBinder.onPageGroupGetFragmentEvent(context,pageCode);
             }
         });
     }

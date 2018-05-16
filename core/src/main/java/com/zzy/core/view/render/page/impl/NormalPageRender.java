@@ -31,9 +31,7 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
     private Context context;
     private RecyclerView recyclerView;
     private MyMultiAdapter adapter;
-    private Page currentPage;
     private SpaceItemDecoration itemDecoration;
-    private boolean isLoadOver = false;
     public NormalPageRender(Context context) {
         this.context = context;
     }
@@ -47,14 +45,12 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
             rootView = LayoutInflater.from(context).inflate(R.layout.elf_page_content_normal, container, false);
             container.addView(rootView);
         }
-        currentPage = page;
         try {
             Page cloneP = page.cloneMe(page);
             /*统计*/
             StatisticsTool.sighElfPage(cloneP);
             renderViews(cloneP);
         } catch (Exception e) {
-            currentPage = null;
             MyExceptionHandler.handle(context,TAG,e);
         }
     }
