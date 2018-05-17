@@ -44,7 +44,7 @@ public class HomeActivity extends BaseActivity {
             @Override
             public void onGetDataEvent(Context context, int pageNum, ElfConstact.Callback callback) {
                 try{
-                    String data = FileUtils.readFileFromAssets(HomeActivity.this,"projectPage.json");
+                    String data = FileUtils.readFileFromAssets(HomeActivity.this,"home.json");
                     Page page = PageJsonParser.parse(data);
                     callback.onCallback(true,page);
                 }catch(Exception e){

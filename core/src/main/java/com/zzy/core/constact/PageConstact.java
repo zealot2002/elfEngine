@@ -15,7 +15,7 @@ import com.zzy.core.model.Page;
 
 public interface PageConstact {
     interface View extends BaseLoadingView {
-        void updatePage(Page page, int pageNum);
+        void updatePage(Page page, int pageNum) throws Exception;
     }
 
     interface Presenter extends BasePresenter {

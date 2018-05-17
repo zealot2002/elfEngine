@@ -20,8 +20,7 @@ import com.zzy.core.constants.BusConstants;
 import com.zzy.core.constants.CommonConstants;
 import com.zzy.core.model.Page;
 import com.zzy.core.utils.L;
-import com.zzy.core.view.render.footer.FooterRender;
-import com.zzy.core.view.render.header.HeaderRender;
+import com.zzy.core.view.render.element.impl.ElementRender;
 import com.zzy.core.view.render.page.PageGroupRender;
 import com.zzy.core.view.render.page.PageRender;
 import com.zzy.core.view.render.page.impl.NormalPageRender;
@@ -37,9 +36,7 @@ public class NormalFragment extends Fragment{
     private Context context;
     private ViewGroup container;
     private String pageCode;
-    private PageRender pageRender;/*page and body*/
-    private HeaderRender headerRender;
-    private FooterRender footerRender;
+    private PageRender pageRender;
     private ElfConstact.DataProvider dataProvider;
 /********************************************************************************************************/
     public NormalFragment(){}

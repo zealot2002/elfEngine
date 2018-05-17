@@ -1,4 +1,4 @@
-package com.zzy.elf_template.template.engine;
+package com.zzy.elf_template.template.engine.common;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
@@ -14,9 +14,9 @@ import com.zzy.core.model.Section;
 import com.zzy.core.model.Widget;
 import com.zzy.core.utils.L;
 import com.zzy.core.utils.MyExceptionHandler;
-import com.zzy.core.view.render.TemplateRender;
 import com.zzy.elf_template.R;
 import com.zzy.elf_template.template.WidgetHelper;
+import com.zzy.elf_template.template.engine.Engine;
 
 import java.util.List;
 
@@ -25,8 +25,8 @@ import java.util.List;
  * @date 2018/2/11
  */
 
-public class RecyclerViewTemplateRender extends TemplateRender {
-    public static final String TAG = "RecyclerViewTemplateRender";
+public class RecyclerViewEngine extends Engine {
+    public static final String TAG = "RecyclerViewEngine";
     public static final int RECYCLER_HORIZONTAL = 1;
     public static final int RECYCLER_VERTICAL = 2;
     public static final int RECYCLER_GRID_3 = 3;
@@ -34,11 +34,11 @@ public class RecyclerViewTemplateRender extends TemplateRender {
     private Context context;
     private int templateId,layoutId,itemLayoutId,layoutManagerType;
 /*****************************************************************************************************/
-    private RecyclerViewTemplateRender(Context context,
-                                       int templateId,
-                                       int layoutId,
-                                       int itemLayoutId,
-                                       int layoutManagerType
+    private RecyclerViewEngine(Context context,
+                               int templateId,
+                               int layoutId,
+                               int itemLayoutId,
+                               int layoutManagerType
                                         ) {
         this.context = context;
         this.templateId = templateId;
@@ -47,7 +47,7 @@ public class RecyclerViewTemplateRender extends TemplateRender {
         this.layoutManagerType = layoutManagerType;
     }
 
-    public RecyclerViewTemplateRender() {}
+    public RecyclerViewEngine() {}
     @Override
     public int getItemViewLayoutId() {
         return layoutId;
@@ -97,8 +97,8 @@ public class RecyclerViewTemplateRender extends TemplateRender {
     }
 
     @Override
-    public TemplateRender newInstance(Context context, int templateId, int layoutId, Object... args) {
-        return new RecyclerViewTemplateRender(context,templateId,layoutId,(int)args[0],(int)args[1]);
+    public Engine newInstance(Context context, int templateId, int layoutId, Object... args) {
+        return new RecyclerViewEngine(context,templateId,layoutId,(int)args[0],(int)args[1]);
     }
 
     public class MyAdapter extends CommonAdapter<Item> {

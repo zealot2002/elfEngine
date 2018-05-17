@@ -154,6 +154,7 @@
     <style name="elf_layout_690_420" parent="elf_layout_690"><item name="android:layout_height">420px</item></style>
     <style name="elf_layout_690_wrap_content" parent="elf_layout_690"><item name="android:layout_height">wrap_content</item></style>
 
+    <style name="elf_layout_750_100" parent="elf_layout_750"><item name="android:layout_height">100px</item></style>
     <style name="elf_layout_750_372" parent="elf_layout_750"><item name="android:layout_height">372px</item></style>
     <style name="elf_layout_750_436" parent="elf_layout_750"><item name="android:layout_height">436px</item></style>
     <style name="elf_layout_750_328" parent="elf_layout_750"><item name="android:layout_height">328px</item></style>

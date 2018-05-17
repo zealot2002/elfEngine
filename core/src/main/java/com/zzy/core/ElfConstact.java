@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 import android.view.View;
-import android.widget.ImageView;
 
+import com.zhy.adapter.recyclerview.base.ItemViewDelegate;
 import com.zzy.core.model.Page;
-import com.zzy.core.view.render.TemplateRender;
+import com.zzy.core.view.render.Render;
 
 import java.util.List;
 
@@ -46,18 +46,16 @@ public interface ElfConstact {
 
     }
     interface Callback {
-        /**
-         *
-         * @param bResult
-         * @param data
-         */
         void onCallback(boolean bResult, Object data);
     }
     interface DataProvider{
         void onGetDataEvent(Context context, int pageNum, Callback callback);
     }
+    interface TemplateRender extends ItemViewDelegate,Render {}
     interface Binder {
         SparseArray<TemplateRender> getTemplateRenderList(Context context, Page page);
+        TemplateRender getTemplateRender(Context context,int templateId) throws Exception;
+        int getTemplateLayoutId(int templateId) throws Exception;
         void onShowImage(Context context, Uri imageUri, View view);
         Fragment onPageGroupGetFragmentEvent(Context context,String pageCode);
     }

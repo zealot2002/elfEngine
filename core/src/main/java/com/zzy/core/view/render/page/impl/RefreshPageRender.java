@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
+import com.zzy.core.ElfConstact;
 import com.zzy.core.ElfProxy;
 import com.zzy.core.R;
 import com.zzy.core.model.Page;
@@ -24,7 +25,7 @@ import com.zzy.core.utils.MyExceptionHandler;
 import com.zzy.core.view.inner.MyMultiAdapter;
 import com.zzy.core.view.inner.SpaceItemDecoration;
 import com.zzy.core.view.inner.WaterfallOnScrollListener;
-import com.zzy.core.view.render.TemplateRender;
+import com.zzy.core.view.render.element.impl.ElementRender;
 import com.zzy.core.view.render.page.WaterfallPageRender;
 
 import java.util.List;
@@ -46,6 +47,9 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
     private int pageNum = 1;
     private WaterfallOnScrollListener onScrollListener;
     private boolean isLoadOver = false;
+    private ElementRender titleRender,headerRender,footerRender;
+
+/****************************************************************************************************/
     public RefreshPageRender(Context context) {
         this.context = context;
     }
@@ -66,6 +70,10 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
             return;
         }
         if(rootView==null){
+            if(page.getTitle()!=null){
+                titleRender = new ElementRender(context);
+                titleRender.render(container,page.getTitle());
+            }
             rootView = LayoutInflater.from(context).inflate(R.layout.elf_page_content_refresh, container, false);
             container.addView(rootView);
         }
@@ -150,9 +158,9 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
         adapter = new MyMultiAdapter(context,page.getBody().getDataList());
-        SparseArray<TemplateRender> templateRenderList = ElfProxy.getInstance().getBinder().getTemplateRenderList(context,page);
+        SparseArray<ElfConstact.TemplateRender> templateRenderList = ElfProxy.getInstance().getBinder().getTemplateRenderList(context,page);
         for(int i = 0; i< templateRenderList.size(); i++){
-            TemplateRender templateRender = templateRenderList.valueAt(i);
+            ElfConstact.TemplateRender templateRender = templateRenderList.valueAt(i);
             adapter.addItemViewDelegate(templateRender);
         }
         recyclerView.setAdapter(adapter);

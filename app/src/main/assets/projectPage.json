@@ -1,5 +1,48 @@
 {
       "pageType": "pageGroup",
+      "title":{
+    "background": "",
+    "itemList":
+    [
+      {
+        "widgetList":
+        [
+          {
+            "border": "",
+            "image": "",
+            "route": [],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          },
+          {
+            "border": "",
+            "image": "local://ic_launcher",
+            "route": [],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          },
+          {
+            "border": "",
+            "image": "",
+            "route": [],
+            "visible": "1",
+            "id": "w2",
+            "text": "我是标题",
+            "textColor": "#ff2a2d47",
+            "url": ""
+          }
+        ]
+      }
+    ],
+    "templateId": "17",
+    "marginTop": 0
+  },
       "pageList":
       [
         {

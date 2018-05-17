@@ -21,8 +21,6 @@ import com.zzy.core.constants.CommonConstants;
 import com.zzy.core.model.Page;
 import com.zzy.core.presenter.PagePresenter;
 import com.zzy.core.utils.L;
-import com.zzy.core.view.render.footer.FooterRender;
-import com.zzy.core.view.render.header.HeaderRender;
 import com.zzy.core.view.render.page.PageGroupRender;
 import com.zzy.core.view.render.page.PageRender;
 import com.zzy.core.view.render.page.WaterfallPageRender;
@@ -40,11 +38,7 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     private String pageCode;
     private boolean needReload;
     private ViewGroup container;
-
-    private PageRender pageRender;/*page and body*/
-    private HeaderRender headerRender;
-    private FooterRender footerRender;
-
+    private PageRender pageRender;
     private ElfConstact.DataProvider dataProvider;
 /********************************************************************************************************/
     public RefreshFragment(){}
@@ -75,19 +69,18 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     }
 
     @Override
-    public void updatePage(Page page, int pageNum) {
+    public void updatePage(Page page, int pageNum) throws Exception{
         super.updateUI(null);
+        if(page.getType() == ElfConstact.PAGE_TYPE_PAGE_GROUP){
+            throw new Exception("RefreshFragment do not support the pageGroup type!");
+        }
         if(container == null){
             container = rootView.findViewById(R.id.container);
-            if(pageRender == null){
-                pageRender = new RefreshPageRender(context);
-                ((WaterfallPageRender) pageRender).setEventListener(waterfallEventListener);
-            }
+            pageRender = new RefreshPageRender(context);
+            ((WaterfallPageRender) pageRender).setEventListener(waterfallEventListener);
         }
         if(pageNum == 1){
-//            headerRender.render();  按照顺序addview 刷新的时候，title也会变，但是刷新动画显示在title下面
             pageRender.render(container,page);
-//            footerRender.render();
         }else{
             ((WaterfallPageRender) pageRender).appendUpdateData(page.getBody().getDataList());
         }

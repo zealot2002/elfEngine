@@ -10,16 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zzy.core.ElfConstact;
 import com.zzy.core.ElfProxy;
 import com.zzy.core.R;
 import com.zzy.core.model.Page;
 import com.zzy.core.statis.StatisticsTool;
 import com.zzy.core.utils.MyExceptionHandler;
-import com.zzy.core.view.render.TemplateRender;
 import com.zzy.core.view.inner.MyMultiAdapter;
 import com.zzy.core.view.inner.SpaceItemDecoration;
-
-import java.util.List;
+import com.zzy.core.view.render.element.impl.ElementRender;
 
 /**
  * @author zzy
@@ -32,6 +31,8 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
     private RecyclerView recyclerView;
     private MyMultiAdapter adapter;
     private SpaceItemDecoration itemDecoration;
+    private ElementRender titleRender,headerRender,footerRender;
+/**************************************************************************************************/
     public NormalPageRender(Context context) {
         this.context = context;
     }
@@ -42,6 +43,10 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
             return;
         }
         if(rootView==null){
+            if(page.getTitle()!=null){
+                titleRender = new ElementRender(context);
+                titleRender.render(container,page.getTitle());
+            }
             rootView = LayoutInflater.from(context).inflate(R.layout.elf_page_content_normal, container, false);
             container.addView(rootView);
         }
@@ -66,9 +71,9 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
         adapter = new MyMultiAdapter(context,page.getBody().getDataList());
-        SparseArray<TemplateRender> templateRenderList = ElfProxy.getInstance().getBinder().getTemplateRenderList(context,page);
+        SparseArray<ElfConstact.TemplateRender> templateRenderList = ElfProxy.getInstance().getBinder().getTemplateRenderList(context,page);
         for(int i = 0; i< templateRenderList.size(); i++){
-            TemplateRender templateRender = templateRenderList.valueAt(i);
+            ElfConstact.TemplateRender templateRender = templateRenderList.valueAt(i);
             adapter.addItemViewDelegate(templateRender);
         }
         recyclerView.setAdapter(adapter);

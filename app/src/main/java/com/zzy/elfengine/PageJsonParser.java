@@ -8,7 +8,7 @@ import com.zzy.core.model.Widget;
 import com.zzy.core.view.element.body.Body;
 import com.zzy.core.view.element.body.PageBody;
 import com.zzy.core.view.element.body.PageListBody;
-import com.zzy.elf_template.template.TemplateHelper;
+import com.zzy.elf_template.template.engine.EngineHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,6 +63,11 @@ public class PageJsonParser {
         if (obj.has("background")) {
             page.setBackground(obj.getString("background"));
         }
+        if (obj.has("title")) {
+            JSONObject titleObj = obj.getJSONObject("title");
+            Section title = parseSection(titleObj);
+            page.setTitle(title);
+        }
         return page;
     }
     private static List<Section> parseSectionList(JSONObject dataObj) throws JSONException {
@@ -70,29 +75,35 @@ public class PageJsonParser {
         JSONArray sectionArray = dataObj.getJSONArray("sectionList");
         for (int i = 0; i < sectionArray.length(); i++) {
             JSONObject sectionObj = sectionArray.getJSONObject(i);
-            Section section = new Section();
-            if (!sectionObj.has("templateId")) {
-                throw new JSONException("A section must have a templateId!");
+            Section section = parseSection(sectionObj);
+            if(section!=null){
+                sectionList.add(section);
             }
-            /*如果templateId客户端不支持，继续下一条*/
-            int templateId = sectionObj.getInt("templateId");
-            if(!TemplateHelper.isValidTemplateId(templateId)){
-                continue;
-            }
-            section.setTemplateId(templateId);
-
-            if (sectionObj.has("background")) {
-                section.setBackground(sectionObj.getString("background"));
-            }
-            if (sectionObj.has("marginTop")) {
-                section.setMarginTop(sectionObj.getInt("marginTop"));
-            }
-            /*itemList*/
-            List<Item> itemList = parseItemList(sectionObj);
-            section.setItemList(itemList);
-            sectionList.add(section);
         }
         return sectionList;
+    }
+    private static Section parseSection(JSONObject sectionObj) throws JSONException{
+        Section section = new Section();
+        if (!sectionObj.has("templateId")) {
+            throw new JSONException("A section must have a templateId!");
+        }
+        /*如果templateId客户端不支持，*/
+        int templateId = sectionObj.getInt("templateId");
+        if(!EngineHelper.isValidTemplateId(templateId)){
+            return null;
+        }
+        section.setTemplateId(templateId);
+
+        if (sectionObj.has("background")) {
+            section.setBackground(sectionObj.getString("background"));
+        }
+        if (sectionObj.has("marginTop")) {
+            section.setMarginTop(sectionObj.getInt("marginTop"));
+        }
+            /*itemList*/
+        List<Item> itemList = parseItemList(sectionObj);
+        section.setItemList(itemList);
+        return section;
     }
     private static List<Item> parseItemList(JSONObject obj) throws JSONException {
         List<Item> itemList = new ArrayList<>();

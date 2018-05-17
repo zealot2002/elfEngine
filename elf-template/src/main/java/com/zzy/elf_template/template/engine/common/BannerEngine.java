@@ -1,4 +1,4 @@
-package com.zzy.elf_template.template.engine;
+package com.zzy.elf_template.template.engine.common;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,10 +11,9 @@ import com.zzy.core.model.Item;
 import com.zzy.core.model.Section;
 import com.zzy.core.model.Widget;
 import com.zzy.core.utils.MyExceptionHandler;
-import com.zzy.core.utils.MyToast;
-import com.zzy.core.view.render.TemplateRender;
 import com.zzy.elf_template.ElfTemplateProxy;
 import com.zzy.elf_template.R;
+import com.zzy.elf_template.template.engine.Engine;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
 
@@ -23,19 +22,19 @@ import cn.bingoogolapple.bgabanner.BGABanner;
  * @date 2018/2/11
  */
 
-public class BannerTemplateRender extends TemplateRender {
-    public static final String TAG = "BannerTemplateRender";
+public class BannerEngine extends Engine {
+    public static final String TAG = "BannerEngine";
     private Context context;
     private int layoutId,templateId;
     private BGABanner banner;
 /*****************************************************************************************************/
-    private BannerTemplateRender(Context context, int templateId, int layoutId) {
+    private BannerEngine(Context context, int templateId, int layoutId) {
         this.context = context;
         this.templateId = templateId;
         this.layoutId = layoutId;
     }
 
-    public BannerTemplateRender() {}
+    public BannerEngine() {}
     @Override
     public int getItemViewLayoutId() {
         return layoutId;
@@ -108,7 +107,7 @@ public class BannerTemplateRender extends TemplateRender {
     }
 
     @Override
-    public TemplateRender newInstance(Context context, int templateId, int layoutId, Object... args) {
-        return new BannerTemplateRender(context,templateId,layoutId);
+    public Engine newInstance(Context context, int templateId, int layoutId, Object... args) {
+        return new BannerEngine(context,templateId,layoutId);
     }
 }

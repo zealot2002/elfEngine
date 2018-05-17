@@ -1,4 +1,4 @@
-package com.zzy.elf_template.template.engine;
+package com.zzy.elf_template.template.engine.special;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
@@ -14,9 +14,9 @@ import com.zzy.core.model.Section;
 import com.zzy.core.model.Widget;
 import com.zzy.core.utils.MyExceptionHandler;
 import com.zzy.core.view.inner.MyPagerAdapter;
-import com.zzy.core.view.render.TemplateRender;
 import com.zzy.elf_template.R;
 import com.zzy.elf_template.template.WidgetHelper;
+import com.zzy.elf_template.template.engine.Engine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,8 @@ import java.util.List;
  * @date 2018/2/11
  *
  */
-public class TemplateRender3 extends TemplateRender {
-    public static final String TAG = "TemplateRender3";
+public class Engine3 extends Engine {
+    public static final String TAG = "Engine3";
     private Context context;
     private int templateId,layoutId;
     private ViewPager viewPager;
@@ -35,13 +35,13 @@ public class TemplateRender3 extends TemplateRender {
     private LinearLayout llContainer;
 
     /*****************************************************************************************************/
-    private TemplateRender3(Context context, int templateId, int layoutId) {
+    private Engine3(Context context, int templateId, int layoutId) {
         this.context = context;
         this.templateId = templateId;
         this.layoutId = layoutId;
     }
 
-    public TemplateRender3() {}
+    public Engine3() {}
 
     @Override
     public int getItemViewLayoutId() {
@@ -151,7 +151,7 @@ public class TemplateRender3 extends TemplateRender {
     }
 
     @Override
-    public TemplateRender newInstance(Context context, int templateId, int layoutId, Object... args) {
-        return new TemplateRender3(context,templateId,layoutId);
+    public Engine newInstance(Context context, int templateId, int layoutId, Object... args) {
+        return new Engine3(context,templateId,layoutId);
     }
 }

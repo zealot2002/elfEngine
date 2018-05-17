@@ -1,4 +1,4 @@
-package com.zzy.elf_template.template.engine;
+package com.zzy.elf_template.template.engine.common;
 
 import android.content.Context;
 import android.view.ViewGroup;
@@ -7,9 +7,9 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zzy.core.model.Section;
 import com.zzy.core.model.Widget;
 import com.zzy.core.utils.MyExceptionHandler;
-import com.zzy.core.view.render.TemplateRender;
 import com.zzy.elf_template.R;
 import com.zzy.elf_template.template.WidgetHelper;
+import com.zzy.elf_template.template.engine.Engine;
 
 import java.util.List;
 
@@ -18,19 +18,19 @@ import java.util.List;
  * @date 2018/2/11
  */
 
-public class SimpleTemplateRender extends TemplateRender {
-    public static final String TAG = "SimpleTemplateRender";
+public class SimpleEngine extends Engine {
+    public static final String TAG = "SimpleEngine";
     private Context context;
     private int templateId,layoutId;
 
 /*****************************************************************************************************/
-    private SimpleTemplateRender(Context context, int templateId, int layoutId) {
+    private SimpleEngine(Context context, int templateId, int layoutId) {
         this.context = context;
         this.templateId = templateId;
         this.layoutId = layoutId;
     }
 
-    public SimpleTemplateRender() {}
+    public SimpleEngine() {}
     @Override
     public int getItemViewLayoutId() {
         return layoutId;
@@ -65,7 +65,7 @@ public class SimpleTemplateRender extends TemplateRender {
     }
 
     @Override
-    public TemplateRender newInstance(Context context, int templateId, int layoutId, Object... args) {
-        return new SimpleTemplateRender(context,templateId,layoutId);
+    public Engine newInstance(Context context, int templateId, int layoutId, Object... args) {
+        return new SimpleEngine(context,templateId,layoutId);
     }
 }

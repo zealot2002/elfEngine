@@ -1,10 +1,7 @@
 package com.zzy.core.model;
 
-import com.zzy.core.constants.CommonConstants;
+import com.zzy.core.view.element.Element;
 import com.zzy.core.view.element.body.Body;
-import com.zzy.core.view.element.footer.Footer;
-import com.zzy.core.view.element.header.Header;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -21,8 +18,7 @@ public class Page extends Elf<Page> implements Serializable {
     private String background;
     private String type;
     private Body body;    //just a list
-    private Header header;// TODO: 2018/3/17
-    private Footer footer;// TODO: 2018/3/17
+    private Section title,header,footer;
 
     public Page() {
     }
@@ -66,19 +62,27 @@ public class Page extends Elf<Page> implements Serializable {
         this.body = body;
     }
 
-    public Header getHeader() {
+    public Section getTitle() {
+        return title;
+    }
+
+    public void setTitle(Section title) {
+        this.title = title;
+    }
+
+    public Section getHeader() {
         return header;
     }
 
-    public void setHeader(Header header) {
+    public void setHeader(Section header) {
         this.header = header;
     }
 
-    public Footer getFooter() {
+    public Section getFooter() {
         return footer;
     }
 
-    public void setFooter(Footer footer) {
+    public void setFooter(Section footer) {
         this.footer = footer;
     }
 
@@ -93,13 +97,14 @@ public class Page extends Elf<Page> implements Serializable {
                 Objects.equals(getBackground(), page.getBackground()) &&
                 getType() == page.getType() &&
                 Objects.equals(getBody().getDataList(), page.getBody().getDataList()) &&
+                Objects.equals(getTitle(), page.getTitle()) &&
                 Objects.equals(getHeader(), page.getHeader()) &&
                 Objects.equals(getFooter(), page.getFooter());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getCode(), getBackground(), getType(), getBody().getDataList(), getHeader(), getFooter());
+        return Objects.hash(getName(), getCode(), getBackground(), getType(), getBody().getDataList(),getTitle(), getHeader(), getFooter());
     }
 }
 

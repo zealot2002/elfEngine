@@ -9,17 +9,17 @@ import java.io.Serializable;
  */
 public class StatisInfo implements Serializable{
     private static final long serialVersionUID = 1L;
-    private String pageName;
+    private String pageCode;
     private int sectionId;
     private int itemId;
     private String widgetId;
 
-    public String getPageName() {
-        return pageName;
+    public String getPageCode() {
+        return pageCode;
     }
 
-    public void setPageName(String pageName) {
-        this.pageName = pageName;
+    public void setPageCode(String pageCode) {
+        this.pageCode = pageCode;
     }
 
     public int getSectionId() {
@@ -48,7 +48,7 @@ public class StatisInfo implements Serializable{
 
     @Override
     public String toString() {
-        return pageName
+        return pageCode
                 +"_"+sectionId
                 +"_"+itemId
                 +"_"+widgetId

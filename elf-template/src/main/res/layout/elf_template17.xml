@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/elf_template_root"
+    >
+    <RelativeLayout
+        style="@style/elf_layout_750_100"
+        >
+        <ImageView
+            android:id="@+id/w1"
+            style="@style/elf_iv_60_60"
+            android:visibility="gone"
+            android:layout_marginLeft="40px"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/w2"
+            style="@style/elf_tv_28"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+</FrameLayout>

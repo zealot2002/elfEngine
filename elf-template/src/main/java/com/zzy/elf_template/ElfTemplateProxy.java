@@ -7,10 +7,9 @@ import android.util.SparseArray;
 import android.view.View;
 
 import com.zzy.core.ElfConstact;
-import com.zzy.core.ElfProxy;
 import com.zzy.core.model.Page;
-import com.zzy.core.view.render.TemplateRender;
-import com.zzy.elf_template.template.TemplateHelper;
+import com.zzy.elf_template.template.engine.Engine;
+import com.zzy.elf_template.template.engine.EngineHelper;
 
 /**
  * @author zzy
@@ -38,13 +37,23 @@ public class ElfTemplateProxy {
         this.mBinder = binder;
         com.zzy.core.ElfProxy.getInstance().setBinder(new ElfConstact.Binder() {
             @Override
-            public SparseArray<TemplateRender> getTemplateRenderList(Context context, Page page) {
+            public SparseArray<ElfConstact.TemplateRender> getTemplateRenderList(Context context, Page page) {
                 try {
-                    return TemplateHelper.getEngineList(context,page);
+                    return EngineHelper.getEngineList(context,page);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 return null;
+            }
+
+            @Override
+            public Engine getTemplateRender(Context context, int templateId) throws Exception{
+                return EngineHelper.getEngin(context,templateId);
+            }
+
+            @Override
+            public int getTemplateLayoutId(int templateId) {
+                return EngineHelper.getLayoutId(templateId);
             }
 
             @Override

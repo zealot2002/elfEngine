@@ -16,6 +16,7 @@ import com.zzy.core.model.Page;
 import com.zzy.core.utils.MyExceptionHandler;
 import com.zzy.core.view.inner.MyFragmentPagerAdapter;
 import com.zzy.core.view.inner.MyViewPaper;
+import com.zzy.core.view.render.element.impl.ElementRender;
 import com.zzy.core.view.render.page.PageGroupRender;
 
 import net.lucode.hackware.magicindicator.FragmentContainerHelper;
@@ -47,6 +48,7 @@ public class PageListTop1PageRender implements PageGroupRender {
     private MyViewPaper mViewPager;
     private List<Page> pageList;
     private FragmentContainerHelper fragmentContainerHelper;
+    private ElementRender titleRender,headerRender,footerRender;
 /**************************************************************************************************/
     public PageListTop1PageRender(Context context, Fragment rootFragment) {
         this.context = context;
@@ -56,6 +58,10 @@ public class PageListTop1PageRender implements PageGroupRender {
     public void render(ViewGroup container, Page page) {
         this.pageList = page.getBody().getDataList();
         if(rootView==null){
+            if(page.getTitle()!=null){
+                titleRender = new ElementRender(context);
+                titleRender.render(container,page.getTitle());
+            }
             rootView = View.inflate(context, R.layout.elf_page_content_page_group_top1,null);
             container.addView(rootView);
         }

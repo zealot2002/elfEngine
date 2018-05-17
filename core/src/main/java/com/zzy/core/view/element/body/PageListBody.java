@@ -1,6 +1,7 @@
 package com.zzy.core.view.element.body;
 import com.zzy.core.model.Page;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * @date 2018/2/9
  */
 
-public class PageListBody implements Body<Page> {
+public class PageListBody implements Body<Page> ,Serializable {
     private List<Page> dataList;
     public PageListBody() {
         dataList = new ArrayList<>();
