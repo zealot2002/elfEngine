@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 public class ElfProxy implements ElfConstact.Req{
-    private ElfConstact.Binder binder;
+    private ElfConstact.Hook hook;
 /*******************************************************************************************************/
     public static ElfProxy getInstance(){
         return LazyHolder.ourInstance;
@@ -25,10 +25,10 @@ public class ElfProxy implements ElfConstact.Req{
         private static final ElfProxy ourInstance = new ElfProxy();
     }
     private ElfProxy() {}
-    public ElfConstact.Binder getBinder() {
-        return binder;
-    }
 
+    public ElfConstact.Hook getHook() {
+        return hook;
+    }
 
     @Override
     public void setDebugMode(boolean b) {
@@ -36,10 +36,9 @@ public class ElfProxy implements ElfConstact.Req{
     }
 
     @Override
-    public void setBinder(ElfConstact.Binder binder) {
-        this.binder = binder;
+    public void setHook(ElfConstact.Hook hook) {
+        this.hook = hook;
     }
-
 
     public Fragment makeNormalPage(String pageCode,ElfConstact.DataProvider dataProvider) {
         return new NormalFragment(pageCode,dataProvider);

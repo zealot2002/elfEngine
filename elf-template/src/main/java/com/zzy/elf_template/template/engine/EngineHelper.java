@@ -58,7 +58,6 @@ public class EngineHelper {
         }
         return templateRenderList;
     }
-
     public static Engine getEngin(Context context, int templateId) throws Exception {
         if(simpleTemplateMap.containsKey(templateId)){
             return new SimpleEngine().newInstance(context,templateId,simpleTemplateMap.get(templateId));
@@ -82,7 +81,6 @@ public class EngineHelper {
                 ||specialTemplateMap.containsKey(templateId)
                 );
     }
-
     public static int getLayoutId(int templateId) {
         if(simpleTemplateMap.containsKey(templateId)){
             return simpleTemplateMap.get(templateId);

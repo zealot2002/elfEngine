@@ -47,11 +47,11 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
     private int pageNum = 1;
     private WaterfallOnScrollListener onScrollListener;
     private boolean isLoadOver = false;
-    private ElementRender titleRender,headerRender,footerRender;
-
+    private ElementRender elementRender;
 /****************************************************************************************************/
     public RefreshPageRender(Context context) {
         this.context = context;
+        elementRender = new ElementRender(context);
     }
     @Override
     public void setEventListener(EventListener eventListener) {
@@ -70,12 +70,18 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
             return;
         }
         if(rootView==null){
+            /*如果有title，先绘制title，顺序不能错*/
             if(page.getTitle()!=null){
-                titleRender = new ElementRender(context);
-                titleRender.render(container,page.getTitle());
+                elementRender.render(container,page.getTitle());
             }
+            /*接着add body*/
             rootView = LayoutInflater.from(context).inflate(R.layout.elf_page_content_refresh, container, false);
             container.addView(rootView);
+
+            /*如果有footer，绘制footer，顺序不能错*/
+            if(page.getFooter()!=null){
+                elementRender.render(container,page.getFooter());
+            }
         }
         if(currentPage!=null&&currentPage.equals(page)){
             L.d(TAG,"render: no data changed!");
@@ -83,6 +89,10 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
         }
         currentPage = page;
         try {
+            /*
+                为了达到“如果data相等，就不重复绘制”的目的，
+                这里需要把统计的标记打在clone数据上
+            */
             Page cloneP = page.cloneMe(page);
             /*统计*/
             StatisticsTool.sighElfPage(cloneP);
@@ -108,12 +118,7 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
         /*统计*/
         StatisticsTool.sighElfPage(cloneP);
         adapter.setDataList(cloneP.getBody().getDataList());
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                adapter.notifyDataSetChanged();
-            }
-        },10);
+        adapter.notifyDataSetChanged();
     }
 
     private void renderViews(Page page) throws Exception{
@@ -158,13 +163,13 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
         adapter = new MyMultiAdapter(context,page.getBody().getDataList());
-        SparseArray<ElfConstact.TemplateRender> templateRenderList = ElfProxy.getInstance().getBinder().getTemplateRenderList(context,page);
+        SparseArray<ElfConstact.TemplateRender> templateRenderList = ElfProxy.getInstance().getHook().getTemplateRenderList(context,page);
         for(int i = 0; i< templateRenderList.size(); i++){
             ElfConstact.TemplateRender templateRender = templateRenderList.valueAt(i);
             adapter.addItemViewDelegate(templateRender);
         }
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        ElfProxy.getInstance().getBinder().onShowImage(context, Uri.parse(page.getBackground()),recyclerView);
+        ElfProxy.getInstance().getHook().onShowImage(context, Uri.parse(page.getBackground()),recyclerView);
     }
 }

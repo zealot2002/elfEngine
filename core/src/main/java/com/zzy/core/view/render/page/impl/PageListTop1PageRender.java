@@ -79,7 +79,7 @@ public class PageListTop1PageRender implements PageGroupRender {
 
             List<Fragment> fragments=new ArrayList<>();
             for(int i=0;i<pageList.size();i++){
-                Fragment f = ElfProxy.getInstance().getBinder().onPageGroupGetFragmentEvent(context,pageList.get(i).getCode());
+                Fragment f = ElfProxy.getInstance().getHook().getFragment(context,pageList.get(i).getCode());
                 fragments.add(f);
             }
             myPagerAdapter = new MyFragmentPagerAdapter(rootFragment.getChildFragmentManager(),fragments);

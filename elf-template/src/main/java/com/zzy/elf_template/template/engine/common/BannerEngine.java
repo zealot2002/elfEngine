@@ -73,7 +73,7 @@ public class BannerEngine extends Engine {
                                     &&!w.getRoute().equals("[]")
                                     &&!w.getRoute().equals("[\"\"]")){
                                 try {
-                                    ElfTemplateProxy.getInstance().getBinder().onClickedEvent(context,w.getRoute(),w.getStatisInfo().toString());
+                                    ElfTemplateProxy.getInstance().getHook().onClickedEvent(context,w.getRoute(),w.getStatisInfo().toString());
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                     Toast.makeText(context,"err:"+e.toString(), Toast.LENGTH_LONG).show();
@@ -90,7 +90,7 @@ public class BannerEngine extends Engine {
                         for(Widget w:item.getWidgetList()){
                             //banner的图片必须配置在w1上
                             if(w.getId().equals("w1")){
-                                ElfTemplateProxy.getInstance().getBinder().onShowImage(context, Uri.parse(w.getImageUri()),itemView);
+                                ElfTemplateProxy.getInstance().getHook().onShowImage(context, Uri.parse(w.getImageUri()),itemView);
                             }
                         }
                     }

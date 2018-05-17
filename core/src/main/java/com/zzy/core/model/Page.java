@@ -1,6 +1,5 @@
 package com.zzy.core.model;
 
-import com.zzy.core.view.element.Element;
 import com.zzy.core.view.element.body.Body;
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,7 +17,7 @@ public class Page extends Elf<Page> implements Serializable {
     private String background;
     private String type;
     private Body body;    //just a list
-    private Section title,header,footer;
+    private Section title,footer;
 
     public Page() {
     }
@@ -70,14 +69,6 @@ public class Page extends Elf<Page> implements Serializable {
         this.title = title;
     }
 
-    public Section getHeader() {
-        return header;
-    }
-
-    public void setHeader(Section header) {
-        this.header = header;
-    }
-
     public Section getFooter() {
         return footer;
     }
@@ -98,13 +89,12 @@ public class Page extends Elf<Page> implements Serializable {
                 getType() == page.getType() &&
                 Objects.equals(getBody().getDataList(), page.getBody().getDataList()) &&
                 Objects.equals(getTitle(), page.getTitle()) &&
-                Objects.equals(getHeader(), page.getHeader()) &&
                 Objects.equals(getFooter(), page.getFooter());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getCode(), getBackground(), getType(), getBody().getDataList(),getTitle(), getHeader(), getFooter());
+        return Objects.hash(getName(), getCode(), getBackground(), getType(), getBody().getDataList(),getTitle(),getFooter());
     }
 }
 

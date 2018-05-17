@@ -96,11 +96,11 @@ public class WidgetHelper {
                 }
             }else if(view instanceof ImageView){
                 if(w.getImageUri()!=null&&!w.getImageUri().isEmpty()){
-                    ElfTemplateProxy.getInstance().getBinder().onShowImage(context,Uri.parse(w.getImageUri()),(ImageView) view);
+                    ElfTemplateProxy.getInstance().getHook().onShowImage(context,Uri.parse(w.getImageUri()),(ImageView) view);
                 }
             }else if(view instanceof RelativeLayout){
                 if(w.getImageUri()!=null&&!w.getImageUri().isEmpty()){
-                    ElfTemplateProxy.getInstance().getBinder().onShowImage(context,Uri.parse(w.getImageUri()),view);
+                    ElfTemplateProxy.getInstance().getHook().onShowImage(context,Uri.parse(w.getImageUri()),view);
                 }
             }
         }catch(Exception e){
@@ -115,7 +115,7 @@ public class WidgetHelper {
                 @Override
                 public void onClick(View v) {
                     try {
-                        ElfTemplateProxy.getInstance().getBinder().onClickedEvent(context,w.getRoute(),w.getStatisInfo().toString());
+                        ElfTemplateProxy.getInstance().getHook().onClickedEvent(context,w.getRoute(),w.getStatisInfo().toString());
                     } catch (Exception e) {
                         MyExceptionHandler.handle(context,TAG,e);
                     }

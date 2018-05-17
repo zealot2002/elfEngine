@@ -28,7 +28,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         ImageUriHelper.getInstance().init(this);
-        ElfTemplateProxy.getInstance().init(new ElfTemplateConstact.Binder() {
+        ElfTemplateProxy.getInstance().init(new ElfTemplateConstact.Hook() {
             @Override
             public void onShowImage(Context context, Uri imageUri, ImageView imageView) {
                 if(imageUri.toString().startsWith(ImageUriHelper.LOCAL_URI_PREFIX)){

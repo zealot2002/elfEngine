@@ -17,7 +17,7 @@ import com.zzy.elf_template.template.engine.EngineHelper;
  */
 
 public class ElfTemplateProxy {
-    private ElfTemplateConstact.Binder mBinder;
+    private ElfTemplateConstact.Hook mHook;
     /*******************************************************************************************************/
     public static ElfTemplateProxy getInstance(){
         return ElfTemplateProxy.LazyHolder.ourInstance;
@@ -26,16 +26,17 @@ public class ElfTemplateProxy {
         private static final ElfTemplateProxy ourInstance = new ElfTemplateProxy();
     }
     private ElfTemplateProxy() {}
-    public ElfTemplateConstact.Binder getBinder() {
-        return mBinder;
+
+    public ElfTemplateConstact.Hook getHook() {
+        return mHook;
     }
 
-    public void init(ElfTemplateConstact.Binder binder) throws RuntimeException{
-        if(binder==null){
-            throw new RuntimeException("You must set binder first!");
+    public void init(ElfTemplateConstact.Hook hook) throws RuntimeException{
+        if(hook==null){
+            throw new RuntimeException("You must set hook first!");
         }
-        this.mBinder = binder;
-        com.zzy.core.ElfProxy.getInstance().setBinder(new ElfConstact.Binder() {
+        mHook = hook;
+        com.zzy.core.ElfProxy.getInstance().setHook(new ElfConstact.Hook() {
             @Override
             public SparseArray<ElfConstact.TemplateRender> getTemplateRenderList(Context context, Page page) {
                 try {
@@ -58,12 +59,12 @@ public class ElfTemplateProxy {
 
             @Override
             public void onShowImage(Context context, Uri imageUri, View view) {
-                mBinder.onShowImage(context,imageUri,view);
+                mHook.onShowImage(context,imageUri,view);
             }
 
             @Override
-            public Fragment onPageGroupGetFragmentEvent(Context context, String pageCode) {
-                return mBinder.onPageGroupGetFragmentEvent(context,pageCode);
+            public Fragment getFragment(Context context, String pageCode) {
+                return mHook.onPageGroupGetFragmentEvent(context,pageCode);
             }
         });
     }

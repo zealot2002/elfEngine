@@ -28,11 +28,11 @@ public class ElementRender implements Render<Section> {
         }
         try{
             /*get view and add it into container*/
-            int layoutId = ElfProxy.getInstance().getBinder().getTemplateLayoutId(section.getTemplateId());
+            int layoutId = ElfProxy.getInstance().getHook().getTemplateLayoutId(section.getTemplateId());
             ViewGroup element = (ViewGroup) LayoutInflater.from(context).inflate(layoutId, container, false);
             container.addView(element);
             /*get render and render view*/
-            ElfConstact.TemplateRender elementRender = ElfProxy.getInstance().getBinder().getTemplateRender(context,section.getTemplateId());
+            ElfConstact.TemplateRender elementRender = ElfProxy.getInstance().getHook().getTemplateRender(context,section.getTemplateId());
             elementRender.render(element,section);
         }catch(Exception e){
             MyExceptionHandler.handle(context,TAG,e);

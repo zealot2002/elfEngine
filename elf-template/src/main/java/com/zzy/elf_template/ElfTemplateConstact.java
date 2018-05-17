@@ -12,8 +12,10 @@ import android.widget.ImageView;
  */
 
 public interface ElfTemplateConstact {
-
-    interface Binder {
+    /**
+     * 以下功能与elf template无关，所以要通通吐出去
+     */
+    interface Hook {
         void onShowImage(Context context, Uri imageUri, ImageView imageView);
         void onShowImage(Context context, Uri imageUri, View view);
         void onClickedEvent(Context context,String routeInfo,String statisInfo);

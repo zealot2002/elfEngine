@@ -31,10 +31,11 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
     private RecyclerView recyclerView;
     private MyMultiAdapter adapter;
     private SpaceItemDecoration itemDecoration;
-    private ElementRender titleRender,headerRender,footerRender;
+    private ElementRender elementRender;
 /**************************************************************************************************/
     public NormalPageRender(Context context) {
         this.context = context;
+        elementRender = new ElementRender(context);
     }
 
     @Override
@@ -43,18 +44,23 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
             return;
         }
         if(rootView==null){
+            /*如果有title，先绘制title，顺序不能错*/
             if(page.getTitle()!=null){
-                titleRender = new ElementRender(context);
-                titleRender.render(container,page.getTitle());
+                elementRender.render(container,page.getTitle());
             }
-            rootView = LayoutInflater.from(context).inflate(R.layout.elf_page_content_normal, container, false);
+            /*接着add body*/
+            rootView = LayoutInflater.from(context).inflate(R.layout.elf_page_content_refresh, container, false);
             container.addView(rootView);
+
+            /*如果有footer，绘制footer，顺序不能错*/
+            if(page.getFooter()!=null){
+                elementRender.render(container,page.getFooter());
+            }
         }
         try {
-            Page cloneP = page.cloneMe(page);
             /*统计*/
-            StatisticsTool.sighElfPage(cloneP);
-            renderViews(cloneP);
+            StatisticsTool.sighElfPage(page);
+            renderViews(page);
         } catch (Exception e) {
             MyExceptionHandler.handle(context,TAG,e);
         }
@@ -71,13 +77,13 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
         adapter = new MyMultiAdapter(context,page.getBody().getDataList());
-        SparseArray<ElfConstact.TemplateRender> templateRenderList = ElfProxy.getInstance().getBinder().getTemplateRenderList(context,page);
+        SparseArray<ElfConstact.TemplateRender> templateRenderList = ElfProxy.getInstance().getHook().getTemplateRenderList(context,page);
         for(int i = 0; i< templateRenderList.size(); i++){
             ElfConstact.TemplateRender templateRender = templateRenderList.valueAt(i);
             adapter.addItemViewDelegate(templateRender);
         }
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        ElfProxy.getInstance().getBinder().onShowImage(context, Uri.parse(page.getBackground()),recyclerView);
+        ElfProxy.getInstance().getHook().onShowImage(context, Uri.parse(page.getBackground()),recyclerView);
     }
 }
