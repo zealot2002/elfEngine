@@ -3,10 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/elf_template_root"
     >
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        style="@style/elf_layout_670_150"
-        android:scrollbars="none"
-    />
+    <cn.bingoogolapple.bgabanner.BGABanner
+        android:id="@+id/banner"
+        style="@style/elf_BannerDefaultStyle"
+        android:layout_width="990px"
+        android:layout_height="317px"
+        app:banner_indicatorGravity="bottom|center_horizontal"
+        app:banner_isNeedShowIndicatorOnOnlyOnePage="false"
+        app:banner_isNumberIndicator="false"
+        app:banner_pointAutoPlayAble="true"
+        app:banner_pointContainerBackground="@android:color/transparent"
+        app:banner_pointDrawable="@drawable/elf_banner_indictor_selector"
+        app:banner_transitionEffect="defaultEffect"/>
 
 </RelativeLayout>

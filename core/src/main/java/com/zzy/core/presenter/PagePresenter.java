@@ -29,7 +29,7 @@ public class PagePresenter implements PageConstact.Presenter {
     }
 
     @Override
-    public void getPageData(final Context context, boolean bShow,final int pageNum, ElfConstact.DataProvider dataProvider) {
+    public void getPageData(final Context context, boolean bShow,final int pageNum, ElfConstact.PageAdapter adapter) {
         if (!NetUtils.isNetworkAvailable(context)) {
             //do nothing..just go on
             view.showDisconnect();
@@ -38,7 +38,7 @@ public class PagePresenter implements PageConstact.Presenter {
         if(bShow){
             view.showLoading();
         }
-        dataProvider.onGetDataEvent(context, pageNum, new ElfConstact.Callback() {
+        adapter.getPageData(context, pageNum, new ElfConstact.Callback() {
             @Override
             public void onCallback(boolean bResult, Object data) {
                 view.closeLoading();

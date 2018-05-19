@@ -1,84 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null"
     android:id="@id/elf_rootView"
-    android:layout_width="670px"
-    android:layout_height="354px"
-    android:clickable="true"
     >
     <RelativeLayout
-        android:id="@+id/w1"
-        style="@style/elf_layout_670_354"
+        android:id="@id/w0"
+        android:layout_width="255px"
+        android:layout_height="161px"
+        android:clickable="true"
+        android:background="@drawable/elf_item_selector"
         >
-            <TextView
-                android:id="@+id/w2"
-                style="@style/elf_tv_32"
-                android:layout_marginLeft="76px"
-                android:layout_marginTop="47px"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:id="@+id/w3"
-                style="@style/elf_tv_24"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="40px"
-                android:layout_marginTop="50px"
-                />
-            <TextView
-                android:id="@+id/w4"
-                style="@style/elf_tv_60"
-                android:layout_marginLeft="76px"
-                android:layout_marginTop="116px"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:id="@+id/w5"
-                style="@style/elf_tv_36"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="96px"
-                android:layout_marginTop="129px"
-                android:textStyle="bold"
-                />
-            <TextView
-                android:id="@+id/w6"
-                style="@style/elf_tv_24"
-                android:layout_marginLeft="47px"
-                android:layout_marginTop="193px"
-                />
-            <TextView
-                android:id="@+id/w7"
-                style="@style/elf_tv_24"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="100px"
-                android:layout_marginTop="193px"
-                />
-            <TextView
-                android:id="@+id/w10"
-                style="@style/elf_tv_48"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="122px"
-                android:textStyle="bold"
-                android:maxEms="9"
-                />
-            <TextView
-                android:id="@+id/w11"
-                style="@style/elf_tv_24"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="190px"
-                android:maxEms="18"
-                />
-
-            <ImageView
-                android:id="@+id/w8"
-                style="@style/elf_iv_360_72"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="250px"
-                />
-            <ImageView
-                android:id="@+id/w9"
-                style="@style/elf_iv_166_50"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="38px"
-                />
+        <ImageView
+            android:id="@id/w1"
+            style="@style/elf_iv_98_98"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:id="@id/w2"
+            android:layout_below="@+id/w1"
+            android:layout_centerHorizontal="true"
+            style="@style/elf_tv_24"
+            />
     </RelativeLayout>
-</RelativeLayout>
+</LinearLayout>
+

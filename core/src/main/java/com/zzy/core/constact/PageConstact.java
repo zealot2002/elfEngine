@@ -19,6 +19,6 @@ public interface PageConstact {
     }
 
     interface Presenter extends BasePresenter {
-        void getPageData(Context context, boolean bShow, int pageNum, ElfConstact.DataProvider dataProvider);
+        void getPageData(Context context, boolean bShow, int pageNum, ElfConstact.PageAdapter dataProvider);
     }
 }

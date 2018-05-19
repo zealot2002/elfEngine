@@ -40,13 +40,13 @@ public class ElfProxy implements ElfConstact.Req{
         this.hook = hook;
     }
 
-    public Fragment makeNormalPage(String pageCode,ElfConstact.DataProvider dataProvider) {
-        return new NormalFragment(pageCode,dataProvider);
+    public Fragment makeNormalPage(String pageCode,ElfConstact.PageAdapter adapter) {
+        return new NormalFragment(pageCode,adapter);
     }
 
     @Override
-    public Fragment makeRefreshPage(String pageCode,ElfConstact.DataProvider dataProvider) {
-        return new RefreshFragment(pageCode,dataProvider);
+    public Fragment makeRefreshPage(String pageCode,ElfConstact.PageAdapter adapter) {
+        return new RefreshFragment(pageCode,adapter);
     }
 
     @Override

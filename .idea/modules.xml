@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/elf-template/elf-template.iml" filepath="$PROJECT_DIR$/elf-template/elf-template.iml" />
       <module fileurl="file://$PROJECT_DIR$/elfEngine.iml" filepath="$PROJECT_DIR$/elfEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/home/home.iml" filepath="$PROJECT_DIR$/home/home.iml" />
     </modules>
   </component>
 </project>

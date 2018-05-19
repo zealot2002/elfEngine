@@ -1,29 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/elf_template_root"
-        >
-    <RelativeLayout
-        style="@style/elf_layout_750_372"
-        android:layout_centerHorizontal="true"
-        >
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="750px"
-            android:layout_height="354px"
-            android:background="@null"
-            android:layout_centerHorizontal="true"
-            />
-        <LinearLayout
-            android:id="@+id/llContainer"
-            android:layout_below="@+id/viewPager"
-            android:layout_width="wrap_content"
-            android:layout_height="26px"
-            android:layout_marginTop="12px"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal"
-            android:background="@null"
-            android:visibility="gone"
-            >
-        </LinearLayout>
-    </RelativeLayout>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/elf_template_root"
+    >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        style="@style/elf_layout_1020_160"
+        android:scrollbars="none"
+        />
+
 </RelativeLayout>

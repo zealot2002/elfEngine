@@ -39,12 +39,12 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     private boolean needReload;
     private ViewGroup container;
     private PageRender pageRender;
-    private ElfConstact.DataProvider dataProvider;
+    private ElfConstact.PageAdapter dataProvider;
 /********************************************************************************************************/
     public RefreshFragment(){}
 
     @SuppressLint("ValidFragment")
-    public RefreshFragment(String pageCode,ElfConstact.DataProvider dataProvider){
+    public RefreshFragment(String pageCode,ElfConstact.PageAdapter dataProvider){
         this.pageCode = pageCode;
         this.dataProvider = dataProvider;
     }

@@ -1,1 +1,1 @@
-include ':app', ':core', ':elf-template'
+include ':app', ':core', ':elf-template', ':home', ':common'

@@ -1,132 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/elf_template_root"
     >
     <RelativeLayout
-            android:id="@+id/w1"
-            style="@style/elf_layout_750_436"
+            android:id="@id/w0"
+            style="@style/elf_layout_960_100"
             >
-        <!--  已登录  -->
-            <TextView
-                android:id="@+id/w2"
-                style="@style/elf_tv_28"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="160px"
-                />
-            <TextView
-                android:id="@+id/w3"
-                style="@style/elf_tv_72"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="220px"
-                android:textStyle="bold"
-                />
-            <!-- 三等分 -->
-            <RelativeLayout
-                android:layout_width="204px"
-                android:layout_height="72px"
-                android:layout_marginTop="312px"
-                android:layout_marginLeft="70px"
-                >
-                    <TextView
-                        android:id="@+id/w4"
-                        style="@style/elf_tv_24"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="2px"
-                        />
-                    <TextView
-                        android:id="@+id/w7"
-                        style="@style/elf_tv_20"
-                        android:layout_below="@+id/w4"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5px"
-                        />
-                    <View
-                        android:id="@+id/v1"
-                        android:layout_width="1px"
-                        android:layout_height="match_parent"
-                        android:background="@color/elf_divider"
-                        android:layout_alignParentRight="true"
-                        />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="204px"
-                android:layout_height="72px"
-                android:layout_marginTop="312px"
-                android:layout_marginLeft="274px"
-                >
-                    <TextView
-                        android:id="@+id/w5"
-                        style="@style/elf_tv_24"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="2px"
-                        />
-                    <TextView
-                        android:id="@+id/w8"
-                        style="@style/elf_tv_20"
-                        android:layout_below="@+id/w5"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5px"
-                        />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="204px"
-                android:layout_height="72px"
-                android:layout_marginTop="312px"
-                android:layout_marginLeft="478px"
-                >
-                    <TextView
-                        android:id="@+id/w6"
-                        style="@style/elf_tv_24"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="2px"
-                        />
-                    <TextView
-                        android:id="@+id/w9"
-                        style="@style/elf_tv_20"
-                        android:layout_below="@+id/w6"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="5px"
-                        />
-                    <View
-                        android:id="@+id/v2"
-                        android:layout_width="1px"
-                        android:layout_height="match_parent"
-                        android:background="@color/elf_divider"
-                        android:layout_alignParentLeft="true"
-                        />
-            </RelativeLayout>
-            <!--eye-->
-            <RelativeLayout
-                    android:id="@+id/rlEye"
-                    style="@style/elf_iv_110_110"
-                    android:layout_marginTop="124px"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="42px"
-                    android:clickable="true"
-                    >
-                    <!-- 眼睛 -->
-                    <ImageView
-                        android:id="@+id/ivEye"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:src="@mipmap/elf_eye_open"
-                        android:layout_centerInParent="true"
-                        />
-                </RelativeLayout>
-        <!--  未登录  -->
         <TextView
-            android:id="@+id/w10"
-            style="@style/elf_tv_48"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="191px"
+            android:id="@id/w1"
+            style="@style/elf_tv_36"
+            android:layout_centerInParent="true"
             />
         <ImageView
-            android:id="@+id/w11"
-            android:layout_width="360px"
-            android:layout_height="72px"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="283px"
+            android:id="@id/w2"
+            style="@style/elf_iv_70_70"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:id="@id/w3"
+            android:layout_toLeftOf="@+id/w2"
+            style="@style/elf_iv_70_70"
+            android:layout_marginRight="60px"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:id="@id/w4"
+            android:layout_toLeftOf="@+id/w3"
+            style="@style/elf_iv_70_70"
+            android:layout_marginRight="60px"
+            android:layout_centerVertical="true"
             />
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

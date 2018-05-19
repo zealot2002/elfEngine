@@ -10,7 +10,6 @@ import com.zzy.elf_template.R;
 import com.zzy.elf_template.template.engine.common.BannerEngine;
 import com.zzy.elf_template.template.engine.common.RecyclerViewEngine;
 import com.zzy.elf_template.template.engine.common.SimpleEngine;
-import com.zzy.elf_template.template.engine.special.Engine3;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,27 +22,17 @@ import java.util.List;
 public class EngineHelper {
     public static final String TAG = "EngineHelper";
     public static final HashMap<Integer,Integer> simpleTemplateMap = new HashMap<Integer,Integer>() {{
-        put(5, R.layout.elf_template5);
-        put(8, R.layout.elf_template8);
-        put(10, R.layout.elf_template10);
-        put(13, R.layout.elf_template6_item);
-        put(14, R.layout.elf_template14);/*系统维护*/
-        put(15, R.layout.elf_template15);
-        put(16, R.layout.elf_template11_item);
-        put(17, R.layout.elf_template17);
+        put(1, R.layout.elf_template1);
+        put(4, R.layout.elf_template4);
     }};
     public static final HashMap<Integer,Integer[]> recyclerViewTemplateMap = new HashMap<Integer,Integer[]>() {{
-        put(2,new Integer[]{R.layout.elf_template2, R.layout.elf_template2_item, RecyclerViewEngine.RECYCLER_HORIZONTAL});
-        put(6,new Integer[]{R.layout.elf_template6, R.layout.elf_template6_item, RecyclerViewEngine.RECYCLER_VERTICAL});
-        put(11,new Integer[]{R.layout.elf_template11, R.layout.elf_template11_item, RecyclerViewEngine.RECYCLER_VERTICAL});
-        put(9,new Integer[]{R.layout.elf_template9, R.layout.elf_template9_item, RecyclerViewEngine.RECYCLER_GRID_3});
+        put(3,new Integer[]{R.layout.elf_template3, R.layout.elf_template3_item, RecyclerViewEngine.RECYCLER_GRID_4});
     }};
     public static final HashMap<Integer,Integer> bannerTemplateMap = new HashMap<Integer,Integer>() {{
-        put(4, R.layout.elf_template4);
-        put(7, R.layout.elf_template7);
+        put(2, R.layout.elf_template2);
     }};
     public static final HashMap<Integer,Object[]> specialTemplateMap = new HashMap<Integer,Object[]>() {{
-        put(3, new Object[]{Engine3.class.getName(), R.layout.elf_template3});
+//        put(3, new Object[]{Engine3.class.getName(), R.layout.elf_template3});
     }};
 
 /**************************************************************************************************************/

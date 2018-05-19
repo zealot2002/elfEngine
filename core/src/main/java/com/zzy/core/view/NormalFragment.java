@@ -37,14 +37,14 @@ public class NormalFragment extends Fragment{
     private ViewGroup container;
     private String pageCode;
     private PageRender pageRender;
-    private ElfConstact.DataProvider dataProvider;
+    private ElfConstact.PageAdapter adapter;
 /********************************************************************************************************/
     public NormalFragment(){}
 
     @SuppressLint("ValidFragment")
-    public NormalFragment(String pageCode,ElfConstact.DataProvider dataProvider){
+    public NormalFragment(String pageCode,ElfConstact.PageAdapter adapter){
         this.pageCode = pageCode;
-        this.dataProvider = dataProvider;
+        this.adapter = adapter;
     }
     @Nullable
     @Override
@@ -58,8 +58,8 @@ public class NormalFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if(dataProvider!=null){
-            dataProvider.onGetDataEvent(context,1,new ElfConstact.Callback() {
+        if(adapter!=null){
+            adapter.getPageData(context,1,new ElfConstact.Callback() {
                 @Override
                 public void onCallback(boolean bResult, Object data) {
                     Page page = (Page) data;
@@ -76,7 +76,7 @@ public class NormalFragment extends Fragment{
                 if(page.getType().equals(ElfConstact.PAGE_TYPE_SINGLE_PAGE)){
                     pageRender = new NormalPageRender(context);
                 }else if(page.getType().equals(ElfConstact.PAGE_TYPE_PAGE_GROUP)){
-                    pageRender = new PageListTop1PageRender(context,NormalFragment.this);
+                    pageRender = new PageListTop1PageRender(context,NormalFragment.this,adapter);
                 }
             }
         }

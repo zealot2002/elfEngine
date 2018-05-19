@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.zhy.autolayout.utils.AutoUtils;
 import com.zzy.core.model.Widget;
+import com.zzy.core.utils.L;
 import com.zzy.core.utils.MyExceptionHandler;
 import com.zzy.core.utils.MyToast;
 import com.zzy.elf_template.ElfTemplateProxy;
@@ -40,10 +41,6 @@ public class WidgetHelper {
         put("w8", R.id.w8);
         put("w9", R.id.w9);
         put("w10", R.id.w10);
-        put("w11", R.id.w11);
-        put("w12", R.id.w12);
-//        put("w13",R.id.w13);
-//        put("w13",R.id.w14);
     }};
 /**************************************************************************************************************/
     public static void fillWidgets(final Context context, final View rootView, final List<Widget> widgets){
@@ -94,13 +91,10 @@ public class WidgetHelper {
                         view.setBackgroundResource(R.drawable.elf_tv_bordor_3);
                     }
                 }
-            }else if(view instanceof ImageView){
+            }else{
                 if(w.getImageUri()!=null&&!w.getImageUri().isEmpty()){
-                    ElfTemplateProxy.getInstance().getHook().onShowImage(context,Uri.parse(w.getImageUri()),(ImageView) view);
-                }
-            }else if(view instanceof RelativeLayout){
-                if(w.getImageUri()!=null&&!w.getImageUri().isEmpty()){
-                    ElfTemplateProxy.getInstance().getHook().onShowImage(context,Uri.parse(w.getImageUri()),view);
+                    L.e(TAG," uri:"+w.getImageUri());
+                    ElfTemplateProxy.getInstance().getHook().onSetResource(context,Uri.parse(w.getImageUri()),view);
                 }
             }
         }catch(Exception e){

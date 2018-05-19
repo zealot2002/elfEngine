@@ -118,7 +118,11 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
         /*统计*/
         StatisticsTool.sighElfPage(cloneP);
         adapter.setDataList(cloneP.getBody().getDataList());
-        adapter.notifyDataSetChanged();
+        recyclerView.post(new Runnable() {
+            public void run() {
+                adapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void renderViews(Page page) throws Exception{
@@ -170,6 +174,8 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
         }
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        ElfProxy.getInstance().getHook().onShowImage(context, Uri.parse(page.getBackground()),recyclerView);
+        if(page.getBackground()!=null){
+            ElfProxy.getInstance().getHook().onSetResource(context, Uri.parse(page.getBackground()),recyclerView);
+        }
     }
 }

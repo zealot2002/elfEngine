@@ -49,7 +49,7 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
                 elementRender.render(container,page.getTitle());
             }
             /*接着add body*/
-            rootView = LayoutInflater.from(context).inflate(R.layout.elf_page_content_refresh, container, false);
+            rootView = LayoutInflater.from(context).inflate(R.layout.elf_page_content_normal, container, false);
             container.addView(rootView);
 
             /*如果有footer，绘制footer，顺序不能错*/
@@ -84,6 +84,8 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
         }
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        ElfProxy.getInstance().getHook().onShowImage(context, Uri.parse(page.getBackground()),recyclerView);
+        if(page.getBackground()!=null){
+            ElfProxy.getInstance().getHook().onSetResource(context, Uri.parse(page.getBackground()),recyclerView);
+        }
     }
 }

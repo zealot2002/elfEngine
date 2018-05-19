@@ -2,8 +2,8 @@
     package="com.zzy.elf_template" >
 
     <application>
-        <meta-data android:name="design_width" android:value="750"/>
-        <meta-data android:name="design_height" android:value="1334"/>
+        <meta-data android:name="design_width" android:value="1080"/>
+        <meta-data android:name="design_height" android:value="1920"/>
     </application>
 
 </manifest>

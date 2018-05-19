@@ -10,6 +10,7 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 
 import com.zzy.commonlib.utils.DisplayUtils;
+import com.zzy.core.ElfConstact;
 import com.zzy.core.ElfProxy;
 import com.zzy.core.R;
 import com.zzy.core.model.Page;
@@ -49,10 +50,12 @@ public class PageListTop1PageRender implements PageGroupRender {
     private List<Page> pageList;
     private FragmentContainerHelper fragmentContainerHelper;
     private ElementRender titleRender,headerRender,footerRender;
+    private ElfConstact.PageAdapter adapter;
 /**************************************************************************************************/
-    public PageListTop1PageRender(Context context, Fragment rootFragment) {
+    public PageListTop1PageRender(Context context, Fragment rootFragment,ElfConstact.PageAdapter adapter) {
         this.context = context;
         this.rootFragment = rootFragment;
+        this.adapter = adapter;
     }
     @Override
     public void render(ViewGroup container, Page page) {
@@ -79,7 +82,7 @@ public class PageListTop1PageRender implements PageGroupRender {
 
             List<Fragment> fragments=new ArrayList<>();
             for(int i=0;i<pageList.size();i++){
-                Fragment f = ElfProxy.getInstance().getHook().getFragment(context,pageList.get(i).getCode());
+                Fragment f = adapter.getFragment(context,pageList.get(i).getCode());
                 fragments.add(f);
             }
             myPagerAdapter = new MyFragmentPagerAdapter(rootFragment.getChildFragmentManager(),fragments);

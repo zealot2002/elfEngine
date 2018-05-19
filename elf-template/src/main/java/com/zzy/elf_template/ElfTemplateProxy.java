@@ -58,13 +58,8 @@ public class ElfTemplateProxy {
             }
 
             @Override
-            public void onShowImage(Context context, Uri imageUri, View view) {
-                mHook.onShowImage(context,imageUri,view);
-            }
-
-            @Override
-            public Fragment getFragment(Context context, String pageCode) {
-                return mHook.onPageGroupGetFragmentEvent(context,pageCode);
+            public void onSetResource(Context context, Uri resourceUri, View view) {
+                mHook.onSetResource(context,resourceUri,view);
             }
         });
     }

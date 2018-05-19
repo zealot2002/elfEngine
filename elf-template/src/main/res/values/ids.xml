@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item type="id" name="elf_rootView" />
+    <item type="id" name="w0" />
+    <item type="id" name="w1" />
+    <item type="id" name="w2" />
+    <item type="id" name="w3" />
+    <item type="id" name="w4" />
+    <item type="id" name="w5" />
+    <item type="id" name="w6" />
+    <item type="id" name="w7" />
+    <item type="id" name="w8" />
+    <item type="id" name="w9" />
+    <item type="id" name="w10" />
 </resources>

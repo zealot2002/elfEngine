@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="home_main_tab_text_color_unselect">#2A2D47</color>
+    <color name="home_main_tab_text_color_select">#C6654D</color>
+
+
+</resources>

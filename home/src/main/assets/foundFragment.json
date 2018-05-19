@@ -1,0 +1,19 @@
+{
+      "pageType": "pageGroup",
+      "navigatorType": "1",
+      "pageCode": "found",
+      "title":{},
+      "pageList":
+      [
+        {
+          "pageName": "网贷",
+          "pageCode": "netLoan"
+        }, {
+          "pageName": "保险",
+          "pageCode": "insurance"
+        }, {
+          "pageName": "基金",
+          "pageCode": "fund"
+        }
+      ]
+}

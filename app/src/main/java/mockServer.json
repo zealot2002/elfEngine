@@ -1,0 +1,30 @@
+{
+  "projectList":{
+    "errorCode":0,
+    "errorMessage":"",
+    "data":{
+      "projectList":[
+        {
+          "name":"定利宝1",
+          "desc":"期望年化",
+          "duration":"30天起",
+          "rate":"6.5",
+          "startMoney":"1万元起",
+          "startTime":"开标时间： 2018-05-19 09:00",
+          "type":1,
+          "state":1
+        },
+        {
+          "name":"定利宝2",
+          "desc":"期望年化",
+          "duration":"30天起",
+          "rate":"6.5",
+          "startMoney":"1万元起",
+          "startTime":"开标时间： 2018-05-19 09:00",
+          "type":1,
+          "state":1
+        }
+      ]
+    }
+  }
+}

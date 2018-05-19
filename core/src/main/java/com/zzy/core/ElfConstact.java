@@ -43,13 +43,13 @@ public interface ElfConstact {
         /**
          * 制作一个普通页面
          */
-        Fragment makeNormalPage(String pageCode,DataProvider dataProvider);
+        Fragment makeNormalPage(String pageCode,PageAdapter adapter);
         /**
          * 制作一个带有下拉刷新和上拉加载的页面
-         * @param dataProvider
+         * @param adapter
          * @return
          */
-        Fragment makeRefreshPage(String pageCode,DataProvider dataProvider);
+        Fragment makeRefreshPage(String pageCode,PageAdapter adapter);
         /**
          * 通知指定pageCode的elf fragment刷新
          * @param pageCode
@@ -79,14 +79,22 @@ public interface ElfConstact {
     /**
      * 页面数据提供者
      */
-    interface DataProvider{
+    interface PageAdapter{
         /**
-         *
+         *  获取页面数据
          * @param context
          * @param pageNum  第几页，从1开始
          * @param callback
          */
-        void onGetDataEvent(Context context, int pageNum, Callback callback);
+        void getPageData(Context context, int pageNum, Callback callback);
+
+        /**
+         * 页组获取fragment
+         * @param context
+         * @param pageCode
+         * @return
+         */
+        Fragment getFragment(Context context, String pageCode);
     }
 
     /**
@@ -121,21 +129,11 @@ public interface ElfConstact {
          */
         int getTemplateLayoutId(int templateId) throws Exception;
 
-
         /**
-         * pagegroup类型page专用，用来获取当前页组的子fragment
          * @param context
-         * @param pageCode  当前页组的code
-         * @return
-         */
-        Fragment getFragment(Context context, String pageCode);
-
-        /**
-         * imageLoader接口，由app提供
-         * @param context
-         * @param imageUri
+         * @param resourceUri
          * @param view
          */
-        void onShowImage(Context context, Uri imageUri, View view);
+        void onSetResource(Context context, Uri resourceUri, View view);
     }
 }

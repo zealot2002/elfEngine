@@ -30,6 +30,7 @@ public class RecyclerViewEngine extends Engine {
     public static final int RECYCLER_HORIZONTAL = 1;
     public static final int RECYCLER_VERTICAL = 2;
     public static final int RECYCLER_GRID_3 = 3;
+    public static final int RECYCLER_GRID_4 = 4;
 
     private Context context;
     private int templateId,layoutId,itemLayoutId,layoutManagerType;
@@ -92,6 +93,8 @@ public class RecyclerViewEngine extends Engine {
             return new LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false);
         }else if(layoutManagerType == RECYCLER_GRID_3){
             return new GridLayoutManager(context,3);
+        }else if(layoutManagerType == RECYCLER_GRID_4){
+            return new GridLayoutManager(context,4);
         }
         return null;
     }

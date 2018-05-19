@@ -20,10 +20,6 @@
     <style name="elf_tv_36" parent="elf_tv"><item name="android:textSize">36px</item></style>
     <style name="elf_tv_42" parent="elf_tv"><item name="android:textSize">42px</item></style>
     <style name="elf_tv_46" parent="elf_tv"><item name="android:textSize">46px</item></style>
-    <style name="elf_tv_48" parent="elf_tv"><item name="android:textSize">48px</item></style>
-    <style name="elf_tv_66" parent="elf_tv"><item name="android:textSize">60px</item></style>
-    <style name="elf_tv_60" parent="elf_tv"><item name="android:textSize">66px</item></style>
-    <style name="elf_tv_72" parent="elf_tv"><item name="android:textSize">72px</item></style>
 
 
     <!-- imageView -->
@@ -32,79 +28,27 @@
         <item name="android:background">@null</item>
     </style>
 
-    <style name="elf_iv_28_28" parent="elf_iv">
-        <item name="android:layout_width">28px</item>
-        <item name="android:layout_height">28px</item>
+    <style name="elf_iv_836_100" parent="elf_iv">
+        <item name="android:layout_width">836px</item>
+        <item name="android:layout_height">100px</item>
     </style>
 
-    <style name="elf_iv_32_16" parent="elf_iv">
-        <item name="android:layout_width">32px</item>
-        <item name="android:layout_height">16px</item>
-    </style>
-
-    <style name="elf_iv_60_60" parent="elf_iv">
-        <item name="android:layout_width">60px</item>
-        <item name="android:layout_height">60px</item>
-    </style>
-
-    <style name="elf_iv_88_28" parent="elf_iv">
-        <item name="android:layout_width">88px</item>
-        <item name="android:layout_height">28px</item>
+    <style name="elf_iv_70_70" parent="elf_iv">
+        <item name="android:layout_width">70px</item>
+        <item name="android:layout_height">70px</item>
     </style>
 
     <style name="elf_iv_90_26" parent="elf_iv">
-        <item name="android:layout_width">90px</item>
+        <item name="android:layout_width">96px</item>
         <item name="android:layout_height">26px</item>
     </style>
 
-    <style name="elf_iv_110_110" parent="elf_iv">
-        <item name="android:layout_width">110px</item>
-        <item name="android:layout_height">110px</item>
+    <style name="elf_iv_98_98" parent="elf_iv">
+        <item name="android:layout_width">98px</item>
+        <item name="android:layout_height">98px</item>
     </style>
 
-    <style name="elf_iv_124_40" parent="elf_iv">
-        <item name="android:layout_width">124px</item>
-        <item name="android:layout_height">40px</item>
-    </style>
 
-    <style name="elf_iv_140_40" parent="elf_iv">
-        <item name="android:layout_width">140px</item>
-        <item name="android:layout_height">40px</item>
-    </style>
-
-    <style name="elf_iv_160_44" parent="elf_iv">
-        <item name="android:layout_width">160px</item>
-        <item name="android:layout_height">44px</item>
-    </style>
-
-    <style name="elf_iv_166_50" parent="elf_iv">
-        <item name="android:layout_width">166px</item>
-        <item name="android:layout_height">50px</item>
-    </style>
-
-    <style name="elf_iv_180_36" parent="elf_iv">
-        <item name="android:layout_width">180px</item>
-        <item name="android:layout_height">36px</item>
-    </style>
-
-    <style name="elf_iv_200_200" parent="elf_iv">
-        <item name="android:layout_width">200px</item>
-        <item name="android:layout_height">200px</item>
-    </style>
-
-    <style name="elf_iv_300_300" parent="elf_iv">
-        <item name="android:layout_width">300px</item>
-        <item name="android:layout_height">300px</item>
-    </style>
-
-    <style name="elf_iv_360_72" parent="elf_iv">
-        <item name="android:layout_width">360px</item>
-        <item name="android:layout_height">72px</item>
-    </style>
-    <style name="elf_iv_690_278" parent="elf_iv">
-        <item name="android:layout_width">690px</item>
-        <item name="android:layout_height">278px</item>
-    </style>
 
     <!-- section -->
     <style name="elf_layout">
@@ -123,65 +67,25 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="elf_layout_670" parent="elf_layout">
-        <item name="android:layout_width">670px</item>
+    <style name="elf_layout_960" parent="elf_layout">
+        <item name="android:layout_width">960px</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <style name="elf_layout_990" parent="elf_layout">
+        <item name="android:layout_width">990px</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <style name="elf_layout_1020" parent="elf_layout">
+        <item name="android:layout_width">1020px</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
-    <style name="elf_layout_690" parent="elf_layout">
-        <item name="android:layout_width">690px</item>
-        <item name="android:layout_centerHorizontal">true</item>
-    </style>
 
-    <style name="elf_layout_750" parent="elf_layout">
-        <item name="android:layout_width">750px</item>
-    </style>
+    <style name="elf_layout_960_100" parent="elf_layout_960"><item name="android:layout_height">100px</item></style>
+    <style name="elf_layout_960_260" parent="elf_layout_960"><item name="android:layout_height">260px</item></style>
 
-    <style name="elf_layout_465" parent="elf_layout">
-        <item name="android:layout_width">465px</item>
-    </style>
-
-    <style name="elf_layout_670_70" parent="elf_layout_670"><item name="android:layout_height">70px</item></style>
-    <style name="elf_layout_670_100" parent="elf_layout_670"><item name="android:layout_height">100px</item></style>
-    <style name="elf_layout_670_150" parent="elf_layout_670"><item name="android:layout_height">150px</item></style>
-    <style name="elf_layout_670_200" parent="elf_layout_670"><item name="android:layout_height">200px</item></style>
-    <style name="elf_layout_670_260" parent="elf_layout_670"><item name="android:layout_height">260px</item></style>
-    <style name="elf_layout_670_280" parent="elf_layout_670"><item name="android:layout_height">280px</item></style>
-    <style name="elf_layout_670_354" parent="elf_layout_670"><item name="android:layout_height">354px</item></style>
-
-    <style name="elf_layout_670_wrap_content" parent="elf_layout_670"><item name="android:layout_height">wrap_content</item></style>
-    <style name="elf_layout_690_320" parent="elf_layout_690"><item name="android:layout_height">320px</item></style>
-    <style name="elf_layout_690_420" parent="elf_layout_690"><item name="android:layout_height">420px</item></style>
-    <style name="elf_layout_690_wrap_content" parent="elf_layout_690"><item name="android:layout_height">wrap_content</item></style>
-
-    <style name="elf_layout_750_100" parent="elf_layout_750"><item name="android:layout_height">100px</item></style>
-    <style name="elf_layout_750_372" parent="elf_layout_750"><item name="android:layout_height">372px</item></style>
-    <style name="elf_layout_750_436" parent="elf_layout_750"><item name="android:layout_height">436px</item></style>
-    <style name="elf_layout_750_328" parent="elf_layout_750"><item name="android:layout_height">328px</item></style>
-    <style name="elf_layout_750_380" parent="elf_layout_750"><item name="android:layout_height">380px</item></style>
-    <style name="elf_layout_750_wrap_content" parent="elf_layout_750"><item name="android:layout_height">wrap_content</item></style>
-    <style name="elf_layout_750_match_parent" parent="elf_layout_750"><item name="android:layout_height">match_parent</item></style>
-
-
-    <style name="elf_layout_465_200" parent="elf_layout_465"><item name="android:layout_height">200px</item></style>
-
-
-    <!--dialog-->
-    <!-- dialog 背景透明-->
-    <style name="elf_dialog" parent="@android:style/Theme.Dialog">
-        <item name="android:windowFrame">@null</item>
-        <!-- 边框 -->
-        <item name="android:windowIsFloating">true</item>
-        <!-- 是否浮现在activity之上 -->
-        <item name="android:windowNoTitle">true</item>
-        <!-- 无标题 -->
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <!-- 背景透明 -->
-        <item name="android:backgroundDimEnabled">false</item>
-        <!-- 模糊 -->
-        <item name="android:windowIsTranslucent">false</item>
-        <!-- 半透明 -->
-    </style>
+    <style name="elf_layout_990_317" parent="elf_layout_990"><item name="android:layout_height">317px</item></style>
+    <style name="elf_layout_1020_160" parent="elf_layout_1020"><item name="android:layout_height">160px</item></style>
 
     <style name="elf_BannerDefaultStyle">
         <!-- 自定义属性在styles.xml中不需要命名空间,直接用属性名就可以了 -->
