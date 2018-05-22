@@ -18,16 +18,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        root = findViewById(R.id.root);
-        imageView = findViewById(R.id.imageView);
-        Uri uri = Uri.parse("android.resource://" + getApplicationContext().getPackageName() + "/" +R.mipmap.ic_launcher);
-//        Uri uri = Uri.parse("android.resource://" + getApplicationContext().getPackageName() + "/" +R.drawable.home_tab1_selector);
-//        Uri uri = Uri.parse("android.resource://" + getApplicationContext().getPackageName() + "/" +R.mipmap.ic_launcher);
-
-//        ImageLoaderUtils.getInstance().showImg(this,uri,imageView);
-
-//        String resId = uri.getLastPathSegment();
-//        root.setBackgroundResource(R.color.colorAccent);
 
     }
 }

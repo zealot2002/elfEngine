@@ -1,7 +1,7 @@
 {
   "pageType": "singlePage",
   "pageCode": "mine",
-  "background": "",
+  "background": "color://grey",
   "title":{
     "background": "",
     "itemList":
@@ -25,11 +25,11 @@
           "route": [],
           "visible": "1",
           "id": "w1",
-          "text": "首页",
+          "text": "我的",
           "textColor": "#ff2a2d47",
           "url": ""
         },
-         {
+          {
           "border": "",
           "image": "local://title_icon1",
           "route": [],
@@ -38,27 +38,7 @@
           "text": "",
           "textColor": "",
           "url": ""
-        },
-          {
-            "border": "",
-            "image": "local://title_icon2",
-            "route": [],
-            "visible": "1",
-            "id": "w3",
-            "text": "",
-            "textColor": "",
-            "url": ""
-          },
-          {
-            "border": "",
-            "image": "local://title_icon3",
-            "route": [],
-            "visible": "1",
-            "id": "w4",
-            "text": "",
-            "textColor": "",
-            "url": ""
-          }
+        }
         ]
       }
     ],
@@ -72,52 +52,49 @@
       "itemList":
       [
         {
-          "widgetList": [{
+          "widgetList": [
+            {
             "border": "",
             "image": "",
-            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "route":"",
             "visible": "1",
             "id": "w0",
             "text": "",
             "textColor": "",
             "url": ""
-          }, {
+          },
+            {
             "border": "",
-            "image": "http://img.zcool.cn/community/01abed58f07648a8012049eff62f7e.jpg@900w_1l_2o_100sh.jpg",
-            "route": [""],
+            "image": "local://mine_icon1",
+            "route": "",
             "visible": "1",
             "id": "w1",
             "text": "",
-            "textColor": "",
-            "url": ""
-          }
-          ]
-        },
-        {
-          "widgetList": [{
-            "border": "",
-            "image": "",
-            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-            "visible": "1",
-            "id": "w0",
-            "text": "",
-            "textColor": "",
-            "url": ""
-          }, {
-            "border": "",
-            "image": "http://img.zcool.cn/community/01b955579320800000018c1b0a4933.jpg",
-            "route": [""],
-            "visible": "1",
-            "id": "w1",
-            "text": "",
-            "textColor": "",
-            "url": ""
-          }
+            "textColor": ""
+          },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "资金记录",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "local://right_arrow",
+              "route": "",
+              "visible": "1",
+              "id": "w5",
+              "text": "",
+              "textColor": ""
+            }
           ]
         }
       ],
-      "templateId": "2",
-      "marginTop": 30
+      "templateId": "5",
+      "marginTop": 50
     },
     {
       "background": "",
@@ -128,7 +105,7 @@
             {
               "border": "",
               "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+              "route":"",
               "visible": "1",
               "id": "w0",
               "text": "",
@@ -137,110 +114,8 @@
             },
             {
               "border": "",
-              "image": "local://grid_icon1",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "LU能量",
-              "textColor": "",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon2",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "签到福利",
-              "textColor": "",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon3",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "邀请好友",
-              "textColor": "",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon4",
-              "route": [""],
+              "image": "local://mine_icon2",
+              "route": "",
               "visible": "1",
               "id": "w1",
               "text": "",
@@ -249,71 +124,26 @@
             {
               "border": "",
               "image": "",
-              "route": [""],
+              "route": "",
               "visible": "1",
               "id": "w2",
-              "text": "精选活动",
-              "textColor": "",
-              "url": ""
+              "text": "我的记录",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "local://right_arrow",
+              "route": "",
+              "visible": "1",
+              "id": "w5",
+              "text": "",
+              "textColor": ""
             }
           ]
         }
-
       ],
-      "templateId": "3",
-      "marginTop": 30
-    },
-    {
-      "background": "",
-      "itemList":
-      [
-        {
-          "widgetList": [{
-            "border": "",
-            "image": "",
-            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-            "visible": "1",
-            "id": "w0",
-            "text": "",
-            "textColor": "",
-            "url": ""
-          }, {
-            "border": "",
-            "image": "http://img.zcool.cn/community/01abed58f07648a8012049eff62f7e.jpg@900w_1l_2o_100sh.jpg",
-            "route": [""],
-            "visible": "1",
-            "id": "w1",
-            "text": "",
-            "textColor": "",
-            "url": ""
-          }
-          ]
-        },
-        {
-          "widgetList": [{
-            "border": "",
-            "image": "",
-            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-            "visible": "1",
-            "id": "w0",
-            "text": "",
-            "textColor": "",
-            "url": ""
-          }, {
-            "border": "",
-            "image": "http://img.zcool.cn/community/01b955579320800000018c1b0a4933.jpg",
-            "route": [""],
-            "visible": "1",
-            "id": "w1",
-            "text": "",
-            "textColor": "",
-            "url": ""
-          }
-          ]
-        }
-      ],
-      "templateId": "2",
-      "marginTop": 30
+      "templateId": "5",
+      "marginTop": 50
     },
     {
       "background": "",
@@ -324,7 +154,7 @@
             {
               "border": "",
               "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+              "route":"",
               "visible": "1",
               "id": "w0",
               "text": "",
@@ -333,110 +163,8 @@
             },
             {
               "border": "",
-              "image": "local://grid_icon1",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "LU能量",
-              "textColor": "",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon2",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "签到福利",
-              "textColor": "",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon3",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "邀请好友",
-              "textColor": "",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon4",
-              "route": [""],
+              "image": "local://mine_icon3",
+              "route": "",
               "visible": "1",
               "id": "w1",
               "text": "",
@@ -445,20 +173,428 @@
             {
               "border": "",
               "image": "",
-              "route": [""],
+              "route": "",
               "visible": "1",
               "id": "w2",
-              "text": "精选活动",
-              "textColor": "",
-              "url": ""
+              "text": "我的投保单",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "local://right_arrow",
+              "route": "",
+              "visible": "1",
+              "id": "w5",
+              "text": "",
+              "textColor": ""
             }
           ]
         }
-
       ],
-      "templateId": "3",
-      "marginTop": 30
+      "templateId": "5",
+      "marginTop": 0
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [
+            {
+              "border": "",
+              "image": "",
+              "route":"",
+              "visible": "1",
+              "id": "w0",
+              "text": "",
+              "textColor": "",
+              "url": ""
+            },
+            {
+              "border": "",
+              "image": "local://mine_icon4",
+              "route": "",
+              "visible": "1",
+              "id": "w1",
+              "text": "",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "我的基金意向",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "local://right_arrow",
+              "route": "",
+              "visible": "1",
+              "id": "w5",
+              "text": "",
+              "textColor": ""
+            }
+          ]
+        }
+      ],
+      "templateId": "5",
+      "marginTop": 0
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [
+            {
+              "border": "",
+              "image": "",
+              "route":"",
+              "visible": "1",
+              "id": "w0",
+              "text": "",
+              "textColor": "",
+              "url": ""
+            },
+            {
+              "border": "",
+              "image": "local://mine_icon5",
+              "route": "",
+              "visible": "1",
+              "id": "w1",
+              "text": "",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "活动中心",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "local://right_arrow",
+              "route": "",
+              "visible": "1",
+              "id": "w5",
+              "text": "",
+              "textColor": ""
+            }
+          ]
+        }
+      ],
+      "templateId": "5",
+      "marginTop": 50
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [
+            {
+              "border": "",
+              "image": "",
+              "route":"",
+              "visible": "1",
+              "id": "w0",
+              "text": "",
+              "textColor": "",
+              "url": ""
+            },
+            {
+              "border": "",
+              "image": "local://mine_icon6",
+              "route": "",
+              "visible": "1",
+              "id": "w1",
+              "text": "",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "我的优惠券",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "local://right_arrow",
+              "route": "",
+              "visible": "1",
+              "id": "w5",
+              "text": "",
+              "textColor": ""
+            }
+          ]
+        }
+      ],
+      "templateId": "5",
+      "marginTop": 0
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [
+            {
+              "border": "",
+              "image": "",
+              "route":"",
+              "visible": "1",
+              "id": "w0",
+              "text": "",
+              "textColor": "",
+              "url": ""
+            },
+            {
+              "border": "",
+              "image": "local://mine_icon7",
+              "route": "",
+              "visible": "1",
+              "id": "w1",
+              "text": "",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "我的邀请",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w4",
+              "text": "敬请期待",
+              "textColor": ""
+            }
+          ]
+        }
+      ],
+      "templateId": "5",
+      "marginTop": 0
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [
+            {
+              "border": "",
+              "image": "",
+              "route":"",
+              "visible": "1",
+              "id": "w0",
+              "text": "",
+              "textColor": "",
+              "url": ""
+            },
+            {
+              "border": "",
+              "image": "local://mine_icon8",
+              "route": "",
+              "visible": "1",
+              "id": "w1",
+              "text": "",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "公告|信息",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "local://right_arrow",
+              "route": "",
+              "visible": "1",
+              "id": "w5",
+              "text": "",
+              "textColor": ""
+            }
+          ]
+        }
+      ],
+      "templateId": "5",
+      "marginTop": 0
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [
+            {
+              "border": "",
+              "image": "",
+              "route":"",
+              "visible": "1",
+              "id": "w0",
+              "text": "",
+              "textColor": "",
+              "url": ""
+            },
+            {
+              "border": "",
+              "image": "local://mine_icon9",
+              "route": "",
+              "visible": "1",
+              "id": "w1",
+              "text": "",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "客服热线",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w3",
+              "text": "400-008-8500",
+              "textColor": "#3F51B5"
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w4",
+              "text": "09:00-19:00",
+              "textColor": "#e0e0e2"
+            }
+          ]
+        }
+      ],
+      "templateId": "5",
+      "marginTop": 50
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [
+            {
+              "border": "",
+              "image": "",
+              "route":"",
+              "visible": "1",
+              "id": "w0",
+              "text": "",
+              "textColor": "",
+              "url": ""
+            },
+            {
+              "border": "",
+              "image": "local://mine_icon9",
+              "route": "",
+              "visible": "1",
+              "id": "w1",
+              "text": "",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "在线客服",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "local://right_arrow",
+              "route": "",
+              "visible": "1",
+              "id": "w5",
+              "text": "",
+              "textColor": ""
+            }
+          ]
+        }
+      ],
+      "templateId": "5",
+      "marginTop": 50
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [
+            {
+              "border": "",
+              "image": "",
+              "route":"",
+              "visible": "1",
+              "id": "w0",
+              "text": "",
+              "textColor": "",
+              "url": ""
+            },
+            {
+              "border": "",
+              "image": "local://mine_icon10",
+              "route": "",
+              "visible": "1",
+              "id": "w1",
+              "text": "",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w2",
+              "text": "客服邮箱",
+              "textColor": ""
+            },
+            {
+              "border": "",
+              "image": "",
+              "route": "",
+              "visible": "1",
+              "id": "w3",
+              "text": "hccfservice@credithc.com",
+              "textColor": "#3F51B5"
+            }
+          ]
+        }
+      ],
+      "templateId": "5",
+      "marginTop": 0
     }
-  ]
 
+  ]
 }

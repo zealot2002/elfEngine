@@ -15,6 +15,8 @@ public class StatisticsTool {
     private static final String TAG = "StatisticsTool";
     public static void sighElfPage(Page page){
         sighSectionList(page.getBody().getDataList(),page.getCode());
+        sighTitleOrFooter(page.getTitle(),page.getCode()+"_title");
+        sighTitleOrFooter(page.getFooter(),page.getCode()+"_footer");
     }
     private static void sighSectionList(List<Section> dataList, String pageCode){
         for(int i=0;i<dataList.size();++i){
@@ -29,6 +31,20 @@ public class StatisticsTool {
                     w.getStatisInfo().setWidgetId(w.getId());
                 }
             }
+        }
+    }
+    private static void sighTitleOrFooter(Section section,String desc) {
+        if(section == null){
+            return;
+        }
+        for(Widget w:section.getItemList().get(0).getWidgetList()){
+            if(w.getStatisInfo().getPageCode()!=null){
+                continue;
+            }
+            w.getStatisInfo().setPageCode(desc);
+            w.getStatisInfo().setSectionId(0);
+            w.getStatisInfo().setItemId(0);
+            w.getStatisInfo().setWidgetId(w.getId());
         }
     }
 }

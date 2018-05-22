@@ -142,18 +142,18 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
 
     private Fragment getHomeFragment() {
 //        return new Fragment();
-        return ElfProxy.getInstance().makeNormalPage(ElfConstants.ELF_PAGE_HOME,new HomeAdapter());
+        return ElfProxy.getInstance().makeRefreshPage(ElfConstants.ELF_PAGE_HOME,new HomeAdapter());
     }
     private Fragment getServiceFragment() {
-//        return new Fragment();
-        return ElfProxy.getInstance().makeRefreshPage(ElfConstants.ELF_PAGE_SERVICE,new ServiceAdapter());
+        return new Fragment();
+//        return ElfProxy.getInstance().makeRefreshPage(ElfConstants.ELF_PAGE_SERVICE,new ServiceAdapter());
     }
     private Fragment getFoundFragment() {
-//        return new Fragment();
-        return ElfProxy.getInstance().makeNormalPage(ElfConstants.ELF_PAGE_FOUND,new FoundAdapter());
+        return new Fragment();
+//        return ElfProxy.getInstance().makeNormalPage(ElfConstants.ELF_PAGE_FOUND,new FoundAdapter());
     }
     private Fragment getMineFragment() {
 //        return new Fragment();
-        return ElfProxy.getInstance().makeRefreshPage(ElfConstants.ELF_PAGE_MINE,new MineAdapter());
+        return ElfProxy.getInstance().makeNormalPage(ElfConstants.ELF_PAGE_MINE,new MineAdapter());
     }
 }

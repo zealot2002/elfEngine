@@ -24,6 +24,7 @@ public class EngineHelper {
     public static final HashMap<Integer,Integer> simpleTemplateMap = new HashMap<Integer,Integer>() {{
         put(1, R.layout.elf_template1);
         put(4, R.layout.elf_template4);
+        put(5, R.layout.elf_template5);
     }};
     public static final HashMap<Integer,Integer[]> recyclerViewTemplateMap = new HashMap<Integer,Integer[]>() {{
         put(3,new Integer[]{R.layout.elf_template3, R.layout.elf_template3_item, RecyclerViewEngine.RECYCLER_GRID_4});

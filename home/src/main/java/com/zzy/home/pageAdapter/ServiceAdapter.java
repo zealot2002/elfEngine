@@ -1,7 +1,6 @@
 package com.zzy.home.pageAdapter;
 
 import android.content.Context;
-import android.provider.SyncStateContract;
 import android.support.v4.app.Fragment;
 
 import com.zzy.common.constants.HttpConstants;
@@ -94,80 +93,75 @@ public class ServiceAdapter implements ElfConstact.PageAdapter{
             Item item = new Item();
 
             /*item根用w0来显示*/
-            Widget w0 = new Widget();
-            w0.setId("w0");
-            w0.setVisible("1");
+            Widget w0 = new Widget.WidgetBuilder("w0")
+                    .visible("1")
+                    .build();
             item.getWidgetList().add(w0);
 
             /*项目名称用w1来显示*/
-            Widget w1 = new Widget();
-            w1.setId("w1");
-            w1.setText(projectBean.getName());
-            w1.setVisible("1");
+            Widget w1 = new Widget.WidgetBuilder("w1")
+                    .visible("1")
+                    .text(projectBean.getName())
+                    .build();
             item.getWidgetList().add(w1);
 
             /*项目类型用w2来显示*/
-            Widget w2 = new Widget();
-            w2.setId("w2");
             if(projectBean.getType()==1){
-                w2.setImageUri("local://special_project");
-                w2.setVisible("1");
-            }else{
-                w2.setVisible("0");
+                Widget w2 = new Widget.WidgetBuilder("w2")
+                        .visible("1")
+                        .imageUri("local://special_project")
+                        .build();
+                item.getWidgetList().add(w2);
             }
-            item.getWidgetList().add(w2);
 
             /*项目rate用w3来显示*/
-            Widget w3 = new Widget();
-            w3.setId("w3");
-            w3.setText(projectBean.getRate());
-            w3.setVisible("1");
+            Widget w3 = new Widget.WidgetBuilder("w3")
+                    .visible("1")
+                    .text(projectBean.getRate())
+                    .build();
             item.getWidgetList().add(w3);
 
-            /*w4是一个%，打开它*/
-            Widget w4 = new Widget();
-            w4.setId("w4");
-            w4.setText("%");
-            w4.setVisible("1");
+            /*w4是一个%*/
+            Widget w4 = new Widget.WidgetBuilder("w4")
+                    .visible("1")
+                    .text("%")
+                    .build();
             item.getWidgetList().add(w4);
 
             /*项目duration用w5来显示*/
-            Widget w5 = new Widget();
-            w5.setId("w5");
-            w5.setText(projectBean.getDuration());
-            w5.setVisible("1");
+            Widget w5 = new Widget.WidgetBuilder("w5")
+                    .visible("1")
+                    .text(projectBean.getDuration())
+                    .build();
             item.getWidgetList().add(w5);
 
             /*项目state用w6来显示*/
-            Widget w6 = new Widget();
-            w6.setId("w6");
-            if(projectBean.getState()==1){
-                w6.setImageUri("local://normal");
-            }else{
-                w6.setImageUri("local://finished");
-            }
-            w6.setVisible("1");
-            item.getWidgetList().add(w6);
+            Widget.WidgetBuilder builder = new Widget.WidgetBuilder("w6");
+            builder.imageUri(projectBean.getState()==1?
+                    "local://normal"
+                    :
+                    "local://finished");
+            item.getWidgetList().add(builder.build());
 
             /*项目desc用w7来显示*/
-            Widget w7 = new Widget();
-            w7.setId("w7");
-            w7.setText(projectBean.getDesc());
-            w7.setVisible("1");
+            Widget w7 = new Widget.WidgetBuilder("w7")
+                    .visible("1")
+                    .text(projectBean.getDesc())
+                    .build();
             item.getWidgetList().add(w7);
 
             /*项目startMoney用w8来显示*/
-            Widget w8 = new Widget();
-            w8.setId("w8");
-            w8.setText(projectBean.getStartMoney());
-            w8.setVisible("1");
+            Widget w8 = new Widget.WidgetBuilder("w8")
+                    .visible("1")
+                    .text(projectBean.getStartMoney())
+                    .build();
             item.getWidgetList().add(w8);
 
             /*项目startTime用w9来显示*/
-            Widget w9 = new Widget();
-            w9.setId("w9");
-            w9.setText(projectBean.getStartTime());
-            w9.setVisible("1");
+            Widget w9 = new Widget.WidgetBuilder("w9")
+                    .visible("1")
+                    .text(projectBean.getStartTime())
+                    .build();
             item.getWidgetList().add(w9);
 
             Section section = new Section();
@@ -219,16 +213,6 @@ public class ServiceAdapter implements ElfConstact.PageAdapter{
             return new Object[]{HConstant.FAIL, msg};
         }
     }
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public Fragment getFragment(Context context, String pageCode) {

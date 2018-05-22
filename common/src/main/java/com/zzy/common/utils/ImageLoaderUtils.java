@@ -13,6 +13,7 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.zzy.core.utils.L;
 
 /**
  * @author zzy
@@ -20,6 +21,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
  */
 
 public class ImageLoaderUtils {
+    private static final String TAG = "ImageLoaderUtils";
     private ImageLoaderUtils() {}
     public static ImageLoaderUtils getInstance() {
         return ImageLoaderUtils.Holder.instance;
@@ -30,6 +32,7 @@ public class ImageLoaderUtils {
     }
 
     public void showImg(final Context context, final Uri uri, final View view){
+        L.e(TAG,"uri:"+uri.toString());
         GenericRequestBuilder request =  Glide.with(context)
                 .load(uri)
                 .centerCrop()

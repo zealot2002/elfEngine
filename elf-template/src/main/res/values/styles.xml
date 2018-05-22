@@ -33,6 +33,11 @@
         <item name="android:layout_height">100px</item>
     </style>
 
+    <style name="elf_iv_30_30" parent="elf_iv">
+        <item name="android:layout_width">30px</item>
+        <item name="android:layout_height">30px</item>
+    </style>
+
     <style name="elf_iv_70_70" parent="elf_iv">
         <item name="android:layout_width">70px</item>
         <item name="android:layout_height">70px</item>
@@ -79,13 +84,18 @@
         <item name="android:layout_width">1020px</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
-
+    <style name="elf_layout_1080" parent="elf_layout">
+        <item name="android:layout_width">1080px</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
 
     <style name="elf_layout_960_100" parent="elf_layout_960"><item name="android:layout_height">100px</item></style>
     <style name="elf_layout_960_260" parent="elf_layout_960"><item name="android:layout_height">260px</item></style>
 
     <style name="elf_layout_990_317" parent="elf_layout_990"><item name="android:layout_height">317px</item></style>
     <style name="elf_layout_1020_160" parent="elf_layout_1020"><item name="android:layout_height">160px</item></style>
+    <style name="elf_layout_1080_160" parent="elf_layout_1080"><item name="android:layout_height">160px</item></style>
+
 
     <style name="elf_BannerDefaultStyle">
         <!-- 自定义属性在styles.xml中不需要命名空间,直接用属性名就可以了 -->

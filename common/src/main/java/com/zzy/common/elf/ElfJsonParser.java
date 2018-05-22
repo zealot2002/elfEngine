@@ -126,26 +126,25 @@ public class ElfJsonParser {
             JSONArray widgetArray = contentObj.getJSONArray("widgetList");
             for (int m = 0; m < widgetArray.length(); m++) {
                 JSONObject widgetObj = widgetArray.getJSONObject(m);
-                Widget widget = new Widget();
+                Widget.WidgetBuilder builder = new Widget.WidgetBuilder(widgetObj.getString("id"));
 
-                widget.setId(widgetObj.getString("id"));
-                widget.setVisible(widgetObj.getString("visible"));
+                builder.visible(widgetObj.getString("visible"));
                 if (widgetObj.has("route")) {
-                    widget.setRoute(widgetObj.getString("route"));
+                    builder.route(widgetObj.getString("route"));
                 }
                 if (widgetObj.has("text")) {
-                    widget.setText(widgetObj.getString("text"));
+                    builder.text(widgetObj.getString("text"));
                 }
                 if (widgetObj.has("textColor")) {
-                    widget.setTextColor(widgetObj.getString("textColor"));
+                    builder.textColor(widgetObj.getString("textColor"));
                 }
                 if (widgetObj.has("border")) {
-                    widget.setBorder(widgetObj.getString("border"));
+                    builder.border(widgetObj.getString("border"));
                 }
                 if (widgetObj.has("image")) {
-                    widget.setImageUri(widgetObj.getString("image"));
+                    builder.imageUri(widgetObj.getString("image"));
                 }
-                item.getWidgetList().add(widget);
+                item.getWidgetList().add(builder.build());
             }
             itemList.add(item);
         }

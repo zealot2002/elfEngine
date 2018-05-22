@@ -5,15 +5,12 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zhy.autolayout.utils.AutoUtils;
 import com.zzy.core.model.Widget;
 import com.zzy.core.utils.L;
 import com.zzy.core.utils.MyExceptionHandler;
-import com.zzy.core.utils.MyToast;
 import com.zzy.elf_template.ElfTemplateProxy;
 import com.zzy.elf_template.R;
 

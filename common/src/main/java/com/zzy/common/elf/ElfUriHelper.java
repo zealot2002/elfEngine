@@ -36,31 +36,37 @@ public class ElfUriHelper {
     private void initColorMap(Context context) {
         localColorMap = new HashMap<>();
         localColorMap.put(COLOR_URI_PREFIX +"colorPrimary", R.color.colorPrimary);
-        localColorMap.put(COLOR_URI_PREFIX +"gray", R.color.gray);
+        localColorMap.put(COLOR_URI_PREFIX +"grey", R.color.grey);
+        localColorMap.put(COLOR_URI_PREFIX +"red", R.color.red);
+        localColorMap.put(COLOR_URI_PREFIX +"blue", R.color.blue);
     }
     private void initImgMap(Context context){
         localImgUriMap = new HashMap<>();
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"title_icon1", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                title_icon1));
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"title_icon2", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                title_icon2));
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"title_icon3", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                title_icon3));
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"grid_icon1", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                grid_icon1));
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"grid_icon2", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                grid_icon2));
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"grid_icon3", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                grid_icon3));
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"grid_icon4", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                grid_icon4));
+        addImage(context,"title_icon1",R.mipmap.title_icon1);
+        addImage(context,"title_icon2",R.mipmap.title_icon2);
+        addImage(context,"title_icon3",R.mipmap.title_icon3);
+        addImage(context,"grid_icon1",R.mipmap.grid_icon1);
+        addImage(context,"grid_icon2",R.mipmap.grid_icon2);
+        addImage(context,"grid_icon3",R.mipmap.grid_icon3);
+        addImage(context,"grid_icon4",R.mipmap.grid_icon4);
+        addImage(context,"special_project",R.mipmap.special_project);
+        addImage(context,"normal",R.mipmap.normal);
+        addImage(context,"finished",R.mipmap.finished);
+        addImage(context,"right_arrow",R.mipmap.right_arrow);
+        addImage(context,"mine_icon1",R.mipmap.mine_icon1);
+        addImage(context,"mine_icon2",R.mipmap.mine_icon2);
+        addImage(context,"mine_icon3",R.mipmap.mine_icon3);
+        addImage(context,"mine_icon4",R.mipmap.mine_icon4);
+        addImage(context,"mine_icon5",R.mipmap.mine_icon5);
+        addImage(context,"mine_icon6",R.mipmap.mine_icon6);
+        addImage(context,"mine_icon7",R.mipmap.mine_icon7);
+        addImage(context,"mine_icon8",R.mipmap.mine_icon8);
+        addImage(context,"mine_icon9",R.mipmap.mine_icon9);
+        addImage(context,"mine_icon10",R.mipmap.mine_icon10);
+    }
 
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"special_project", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                special_project));
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"normal", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                normal));
-        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +"finished", Uri.parse("android.resource://" + context.getPackageName() + "/" +R.mipmap.
-                finished));
+    private void addImage(Context context,String name,int resId) {
+        localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +name, Uri.parse("android.resource://" + context.getPackageName() + "/" +resId));
     }
 
     private int getColor(String key){
