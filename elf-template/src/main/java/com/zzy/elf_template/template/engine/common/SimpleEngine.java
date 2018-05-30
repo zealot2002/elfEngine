@@ -3,10 +3,10 @@ package com.zzy.elf_template.template.engine.common;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zzy.core.model.Section;
 import com.zzy.core.model.Widget;
 import com.zzy.core.utils.MyExceptionHandler;
+import com.zzy.core.view.inner.recycleAdapter.ViewHolder;
 import com.zzy.elf_template.R;
 import com.zzy.elf_template.template.WidgetHelper;
 import com.zzy.elf_template.template.engine.Engine;

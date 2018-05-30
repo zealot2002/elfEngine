@@ -5,8 +5,4 @@
     android:layout_height="match_parent"
     >
 
-    <include layout="@layout/elf_base_disconnect" />
-    <include layout="@layout/elf_base_loading_error" />
-
-
 </FrameLayout>

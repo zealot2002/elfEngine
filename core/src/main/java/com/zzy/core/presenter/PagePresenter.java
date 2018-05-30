@@ -42,16 +42,17 @@ public class PagePresenter implements PageConstact.Presenter {
             @Override
             public void onCallback(boolean bResult, Object data) {
                 view.closeLoading();
-                if(bResult){
-                    try{
+                try{
+                    if(bResult){
                         Page page = (Page) data;
                         view.updatePage(page,pageNum);
-                    }catch(Exception e){
-                        MyExceptionHandler.handle(context,TAG,e);
+                    }else {
+                        MyToast.show(context," err:"+data.toString());
+                        L.e(TAG,"返回 err:" +data.toString());
+                        view.showDisconnect();
                     }
-                }else {
-                    MyToast.show(context," err:"+data.toString());
-                    L.e(TAG,"返回 err:" +data.toString());
+                }catch(Exception e){
+                    MyExceptionHandler.handle(context,TAG,e);
                     view.showDisconnect();
                 }
             }

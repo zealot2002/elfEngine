@@ -2,7 +2,6 @@ package com.zzy.core.view.render.page.impl;
 
 import android.content.Context;
 import android.net.Uri;
-import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,8 +22,10 @@ import com.zzy.core.statis.StatisticsTool;
 import com.zzy.core.utils.L;
 import com.zzy.core.utils.MyExceptionHandler;
 import com.zzy.core.view.inner.MyMultiAdapter;
+import com.zzy.core.view.inner.MyMultiRecycleAdapter;
 import com.zzy.core.view.inner.SpaceItemDecoration;
 import com.zzy.core.view.inner.WaterfallOnScrollListener;
+import com.zzy.core.view.inner.recycleAdapter.OnLoadMoreListener;
 import com.zzy.core.view.render.element.impl.ElementRender;
 import com.zzy.core.view.render.page.WaterfallPageRender;
 
@@ -34,22 +35,21 @@ import java.util.List;
  * @author zzy
  * @date 2018/2/27
  */
-public class RefreshPageRender implements WaterfallPageRender<Section> {
-    public static final String TAG = "RefreshPageRender";
+public class BottomRefreshPageRender implements WaterfallPageRender<Section> {
+    public static final String TAG = "BottomRefreshPageRender";
     private View rootView;
     private Context context;
     private SmartRefreshLayout refreshLayout;
     private RecyclerView recyclerView;
-    private MyMultiAdapter adapter;
+    private MyMultiRecycleAdapter adapter;
     private Page currentPage;
     private SpaceItemDecoration itemDecoration;
-    private WaterfallPageRender.EventListener eventListener;
+    private EventListener eventListener;
     private int pageNum = 1;
-    private WaterfallOnScrollListener onScrollListener;
     private boolean isLoadOver = false;
     private ElementRender elementRender;
 /****************************************************************************************************/
-    public RefreshPageRender(Context context) {
+    public BottomRefreshPageRender(Context context) {
         this.context = context;
         elementRender = new ElementRender(context);
     }
@@ -62,9 +62,6 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
     public void render(ViewGroup container, Page page) {
         if(refreshLayout !=null){
             refreshLayout.finishRefresh();
-        }
-        if(onScrollListener !=null){
-            onScrollListener.reset();
         }
         if(page==null){
             return;
@@ -105,8 +102,10 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
 
     @Override
     public void appendUpdateData(List<Section> list) {
-        if(onScrollListener !=null){
-            onScrollListener.reset();
+        if(list == null
+                ||list.isEmpty()
+                ){
+            adapter.loadEnd();
         }
         if(list.isEmpty()){
             isLoadOver = true;
@@ -117,17 +116,12 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
         Page cloneP = currentPage.cloneMe(currentPage);
         /*统计*/
         StatisticsTool.sighElfPage(cloneP);
-        adapter.setDataList(cloneP.getBody().getDataList());
-        recyclerView.post(new Runnable() {
-            public void run() {
-                adapter.notifyDataSetChanged();
-            }
-        });
+        adapter.setLoadMoreData(list);
     }
 
     @Override
     public void showDisconnect() {
-
+        adapter.loadFailed();
     }
 
     private void renderViews(Page page) throws Exception{
@@ -136,20 +130,7 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
             LinearLayoutManager layoutManager = new LinearLayoutManager(context);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
-        /*load more*/
-            onScrollListener = new WaterfallOnScrollListener() {
-                @Override
-                public void onLoadMore() {
-                    L.e(TAG,"onLoadMore ");
-                    if(isLoadOver){
-                        return;
-                    }
-                    if(eventListener!=null){
-                        eventListener.onLoadMore(++pageNum);
-                    }
-                }
-            };
-            recyclerView.addOnScrollListener(onScrollListener);
+
         /*reload*/
             refreshLayout = rootView.findViewById(R.id.refresh);
             refreshLayout.setOnRefreshListener(new OnRefreshListener() {
@@ -158,7 +139,6 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
                     if(eventListener !=null){
                         isLoadOver = false;
                         pageNum = 1;
-                        onScrollListener.reset();
                         eventListener.onReload();
                     }
                 }
@@ -171,11 +151,37 @@ public class RefreshPageRender implements WaterfallPageRender<Section> {
         itemDecoration = new SpaceItemDecoration(context,page.getBody().getDataList());
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
-        adapter = new MyMultiAdapter(context,page.getBody().getDataList());
+        adapter = new MyMultiRecycleAdapter(context,page.getBody().getDataList(),true);
+        adapter.setLoadingView(R.layout.load_loading_layout);
+        //加载失败，更新footer view提示
+        adapter.setLoadFailedView(R.layout.load_failed_layout);
+        //加载完成，更新footer view提示
+        adapter.setLoadEndView(R.layout.load_end_layout);
+
+        //设置不满一屏幕，自动加载第二页
+        adapter.openAutoLoadMore();
+        //设置加载更多触发的事件监听
+        adapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(boolean isReload) {
+                L.e(TAG,"onLoadMore ");
+                if(isLoadOver){
+                    return;
+                }
+                if(eventListener!=null){
+                    if(isReload){
+                        eventListener.onLoadMore(pageNum);
+                    }else{
+                        eventListener.onLoadMore(++pageNum);
+                    }
+                }
+            }
+        });
+
         SparseArray<ElfConstact.TemplateRender> templateRenderList = ElfProxy.getInstance().getHook().getTemplateRenderList(context,page);
         for(int i = 0; i< templateRenderList.size(); i++){
             ElfConstact.TemplateRender templateRender = templateRenderList.valueAt(i);
-//            adapter.addItemViewDelegate(templateRender);
+            adapter.addItemViewDelegate(templateRender);
         }
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

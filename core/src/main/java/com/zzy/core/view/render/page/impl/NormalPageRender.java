@@ -17,6 +17,7 @@ import com.zzy.core.model.Page;
 import com.zzy.core.statis.StatisticsTool;
 import com.zzy.core.utils.MyExceptionHandler;
 import com.zzy.core.view.inner.MyMultiAdapter;
+import com.zzy.core.view.inner.MyMultiRecycleAdapter;
 import com.zzy.core.view.inner.SpaceItemDecoration;
 import com.zzy.core.view.render.element.impl.ElementRender;
 
@@ -29,7 +30,7 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
     private View rootView;
     private Context context;
     private RecyclerView recyclerView;
-    private MyMultiAdapter adapter;
+    private MyMultiRecycleAdapter adapter;
     private SpaceItemDecoration itemDecoration;
     private ElementRender elementRender;
 /**************************************************************************************************/
@@ -76,7 +77,7 @@ public class NormalPageRender implements com.zzy.core.view.render.page.PageRende
         itemDecoration = new SpaceItemDecoration(context,page.getBody().getDataList());
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
-        adapter = new MyMultiAdapter(context,page.getBody().getDataList());
+        adapter = new MyMultiRecycleAdapter(context,page.getBody().getDataList(),false);
         SparseArray<ElfConstact.TemplateRender> templateRenderList = ElfProxy.getInstance().getHook().getTemplateRenderList(context,page);
         for(int i = 0; i< templateRenderList.size(); i++){
             ElfConstact.TemplateRender templateRender = templateRenderList.valueAt(i);

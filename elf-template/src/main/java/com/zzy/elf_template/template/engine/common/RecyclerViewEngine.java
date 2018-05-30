@@ -7,13 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zhy.adapter.recyclerview.CommonAdapter;
-import com.zhy.adapter.recyclerview.base.ViewHolder;
 import com.zzy.core.model.Item;
 import com.zzy.core.model.Section;
 import com.zzy.core.model.Widget;
 import com.zzy.core.utils.L;
 import com.zzy.core.utils.MyExceptionHandler;
+import com.zzy.core.view.inner.recycleAdapter.CommonBaseAdapter;
+import com.zzy.core.view.inner.recycleAdapter.ViewHolder;
 import com.zzy.elf_template.R;
 import com.zzy.elf_template.template.WidgetHelper;
 import com.zzy.elf_template.template.engine.Engine;
@@ -76,10 +76,9 @@ public class RecyclerViewEngine extends Engine {
             RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
             RecyclerView.LayoutManager layoutManager = makeLayoutManager(layoutManagerType);
             recyclerView.setLayoutManager(layoutManager);
-            MyAdapter adapter = new MyAdapter(context,itemLayoutId,((Section)obj).getItemList());
+            MyAdapter adapter = new MyAdapter(context,((Section)obj).getItemList(),false);
             recyclerView.setAdapter(adapter);
             recyclerView.setFocusable(false);
-            adapter.setDataList(((Section)obj).getItemList());
             adapter.notifyDataSetChanged();
         }catch(Exception e){
             MyExceptionHandler.handle(context,TAG,e);
@@ -104,15 +103,10 @@ public class RecyclerViewEngine extends Engine {
         return new RecyclerViewEngine(context,templateId,layoutId,(int)args[0],(int)args[1]);
     }
 
-    public class MyAdapter extends CommonAdapter<Item> {
-        List<Item> dataList;
-        public MyAdapter(Context context, int layoutId, List<Item> dataList) {
-            super(context, layoutId, dataList);
-            this.dataList = dataList;
-        }
+    public class MyAdapter extends CommonBaseAdapter<Item> {
 
-        public void setDataList(List<Item> dataList) {
-            mDatas = dataList;
+        public MyAdapter(Context context, List<Item> datas, boolean isOpenLoadMore) {
+            super(context, datas, isOpenLoadMore);
         }
 
         @Override
@@ -120,6 +114,11 @@ public class RecyclerViewEngine extends Engine {
             View rootView = holder.getView(R.id.elf_rootView);
             List<Widget> widgets = item.getWidgetList();
             WidgetHelper.fillWidgets(context,rootView,widgets);
+        }
+
+        @Override
+        protected int getItemLayoutId() {
+            return itemLayoutId;
         }
     }
 }

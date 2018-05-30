@@ -14,5 +14,6 @@ public interface WaterfallPageRender<T> extends PageRender {
         void onLoadMore(int pageNum);
     }
     void appendUpdateData(List<T> list);
+    void showDisconnect();
     void setEventListener(EventListener eventListener);
 }

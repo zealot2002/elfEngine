@@ -2,13 +2,12 @@ package com.zzy.core;
 
 import android.content.Context;
 import android.net.Uri;
-import android.os.Binder;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 import android.view.View;
 
-import com.zhy.adapter.recyclerview.base.ItemViewDelegate;
 import com.zzy.core.model.Page;
+import com.zzy.core.view.inner.recycleAdapter.ItemViewDelegate;
 import com.zzy.core.view.render.Render;
 
 import java.util.List;

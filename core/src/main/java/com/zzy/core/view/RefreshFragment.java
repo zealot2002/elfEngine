@@ -24,7 +24,10 @@ import com.zzy.core.utils.L;
 import com.zzy.core.view.render.page.PageGroupRender;
 import com.zzy.core.view.render.page.PageRender;
 import com.zzy.core.view.render.page.WaterfallPageRender;
+import com.zzy.core.view.render.page.impl.BottomRefreshPageRender;
 import com.zzy.core.view.render.page.impl.RefreshPageRender;
+
+import java.util.ArrayList;
 
 /**
  * @author zzy
@@ -51,9 +54,8 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = super.onCreateView(inflater,container,savedInstanceState);
+        rootView = inflater.inflate(R.layout.elf_fragment_page, container, false);
         context = getActivity();
-        setContentViewLayoutId(R.layout.elf_fragment_page);
 
         presenter = new PagePresenter(this);
         presenter.getPageData(context, true,1,dataProvider);
@@ -76,13 +78,19 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
         }
         if(container == null){
             container = rootView.findViewById(R.id.container);
-            pageRender = new RefreshPageRender(context);
+//            pageRender = new RefreshPageRender(context);
+            pageRender = new BottomRefreshPageRender(context);
+
             ((WaterfallPageRender) pageRender).setEventListener(waterfallEventListener);
         }
         if(pageNum == 1){
             pageRender.render(container,page);
         }else{
-            ((WaterfallPageRender) pageRender).appendUpdateData(page.getBody().getDataList());
+            if(page.getBody()!=null){
+                ((WaterfallPageRender) pageRender).appendUpdateData(page.getBody().getDataList());
+            }else{
+                ((WaterfallPageRender) pageRender).appendUpdateData(new ArrayList());
+            }
         }
     }
 
@@ -137,5 +145,11 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     public void onDestroy() {
         super.onDestroy();
         BusHelper.getBus().unregister(this);
+    }
+
+    @Override
+    public void showDisconnect() {
+        super.showDisconnect();
+        ((WaterfallPageRender) pageRender).showDisconnect();
     }
 }

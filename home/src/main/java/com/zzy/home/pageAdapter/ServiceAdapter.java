@@ -35,11 +35,24 @@ import static com.zzy.commonlib.http.HConstant.HTTP_METHOD_GET;
 
 public class ServiceAdapter implements ElfConstact.PageAdapter{
     private static final String TAG = "ServiceAdapter";
+    private boolean bTestNoNet = true;
     @Override
     public void getPageData(Context context, int pageNum,final ElfConstact.Callback callback) {
-        if(pageNum>2){
+        //for test
+        if(pageNum == 1){
+            bTestNoNet = true;
+        }
+        if(pageNum==2&&bTestNoNet){
+            bTestNoNet = false;
+            callback.onCallback(false,"网络加载失败");
             return;
         }
+        if(pageNum==4){
+            //全部加载完毕，没有新数据了
+            callback.onCallback(true,new Page());
+            return;
+        }
+        //for test 获取业务接口数据
         String url = HttpConstants.SERVER_URL + "/"+ HttpConstants.PROJECT_LIST;
         HInterface.JsonParser getProjectListJsonParser = new HInterface.JsonParser() {
             @Override

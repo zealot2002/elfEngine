@@ -124,143 +124,259 @@
       "itemList":
       [
         {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon1",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "LU能量",
-              "textColor": "",
-              "url": ""
-            }
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01abed58f07648a8012049eff62f7e.jpg@900w_1l_2o_100sh.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
           ]
         },
         {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon2",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "签到福利",
-              "textColor": "",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon3",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "邀请好友",
-              "textColor": "",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "widgetList": [
-            {
-              "border": "",
-              "image": "",
-              "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
-              "visible": "1",
-              "id": "w0",
-              "text": "",
-              "textColor": "",
-              "url": ""
-            },
-            {
-              "border": "",
-              "image": "local://grid_icon4",
-              "route": [""],
-              "visible": "1",
-              "id": "w1",
-              "text": "",
-              "textColor": ""
-            },
-            {
-              "border": "",
-              "image": "",
-              "route": [""],
-              "visible": "1",
-              "id": "w2",
-              "text": "精选活动",
-              "textColor": "",
-              "url": ""
-            }
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01b955579320800000018c1b0a4933.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
           ]
         }
-
       ],
-      "templateId": "3",
+      "templateId": "2",
+      "marginTop": 30
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01abed58f07648a8012049eff62f7e.jpg@900w_1l_2o_100sh.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
+          ]
+        },
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01b955579320800000018c1b0a4933.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
+          ]
+        }
+      ],
+      "templateId": "2",
+      "marginTop": 30
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01abed58f07648a8012049eff62f7e.jpg@900w_1l_2o_100sh.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
+          ]
+        },
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01b955579320800000018c1b0a4933.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
+          ]
+        }
+      ],
+      "templateId": "2",
+      "marginTop": 30
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01abed58f07648a8012049eff62f7e.jpg@900w_1l_2o_100sh.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
+          ]
+        },
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01b955579320800000018c1b0a4933.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
+          ]
+        }
+      ],
+      "templateId": "2",
+      "marginTop": 30
+    },
+    {
+      "background": "",
+      "itemList":
+      [
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01abed58f07648a8012049eff62f7e.jpg@900w_1l_2o_100sh.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
+          ]
+        },
+        {
+          "widgetList": [{
+            "border": "",
+            "image": "",
+            "route": ["openPage", "webview1", "{\"url\":\"http://event.pinkecard.com/v1/caifu/addcredit/index_v2.html\"}"],
+            "visible": "1",
+            "id": "w0",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }, {
+            "border": "",
+            "image": "http://img.zcool.cn/community/01b955579320800000018c1b0a4933.jpg",
+            "route": [""],
+            "visible": "1",
+            "id": "w1",
+            "text": "",
+            "textColor": "",
+            "url": ""
+          }
+          ]
+        }
+      ],
+      "templateId": "2",
       "marginTop": 30
     },
     {

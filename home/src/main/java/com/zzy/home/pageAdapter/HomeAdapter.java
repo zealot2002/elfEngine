@@ -16,6 +16,10 @@ import com.zzy.core.model.Page;
 public class HomeAdapter implements ElfConstact.PageAdapter{
     @Override
     public void getPageData(Context context, int pageNum, ElfConstact.Callback callback) {
+        if(pageNum==3){
+            callback.onCallback(false,"网络加载失败");
+            return;
+        }
         try{
             String data = FileUtils.readFileFromAssets(context,"homeFragment.json");
             Page page = ElfJsonParser.parse(data);
