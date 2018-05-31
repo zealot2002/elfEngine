@@ -88,7 +88,7 @@ public interface ElfConstact {
         void getPageData(Context context, int pageNum, Callback callback);
 
         /**
-         * 页组获取fragment
+         * 页组专用：获取fragment
          * @param context
          * @param pageCode
          * @return

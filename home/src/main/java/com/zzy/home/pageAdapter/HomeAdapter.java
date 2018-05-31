@@ -21,16 +21,8 @@ import java.util.ArrayList;
 public class HomeAdapter implements ElfConstact.PageAdapter{
     @Override
     public void getPageData(Context context, int pageNum, ElfConstact.Callback callback) {
-//        if(pageNum==1){
-//            Page p = new Page();
-//            Body body = new PageBody();
-//            body.setDataList(new ArrayList());
-//            p.setBody(body);
-//            callback.onCallback(true,p);
-//            return;
-//        }
-        if(pageNum==3){
-            callback.onCallback(false,"网络加载失败");
+        if(pageNum>5){
+            callback.onCallback(true,new Page());
             return;
         }
         try{

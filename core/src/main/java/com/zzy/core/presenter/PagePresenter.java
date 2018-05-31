@@ -9,7 +9,6 @@ import com.zzy.core.constact.PageConstact;
 import com.zzy.core.model.Page;
 import com.zzy.core.utils.L;
 import com.zzy.core.utils.MyExceptionHandler;
-import com.zzy.core.utils.MyToast;
 
 /**
  * @author zzy
@@ -32,8 +31,7 @@ public class PagePresenter implements PageConstact.Presenter {
     public void getPageData(final Context context, boolean bShow,final int pageNum, ElfConstact.PageAdapter adapter) {
         L.e(TAG,"getPageData pageNum:"+pageNum);
         if (!NetUtils.isNetworkAvailable(context)) {
-            //do nothing..just go on
-            view.showDisconnect();
+            showDisconnectByPageNum(pageNum);
             return;
         }
         if(bShow){
@@ -50,13 +48,20 @@ public class PagePresenter implements PageConstact.Presenter {
                         view.updatePage(page,pageNum);
                     }else {
                         L.e(TAG,"返回 err:" +data.toString());
-                        view.showDisconnect();
+                        showDisconnectByPageNum(pageNum);
                     }
                 }catch(Exception e){
                     MyExceptionHandler.handle(context,TAG,e);
-                    view.showDisconnect();
+                    showDisconnectByPageNum(pageNum);
                 }
             }
         });
+    }
+    private void showDisconnectByPageNum(int pageNum){
+        if(pageNum > 1){
+            view.showLoadingError();
+        }else{
+            view.showDisconnect();
+        }
     }
 }

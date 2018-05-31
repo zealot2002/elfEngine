@@ -55,10 +55,10 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         L.e(TAG,"onCreateView");
+        BusHelper.getBus().register(this);
         context = getActivity();
         contentViewResId = R.layout.elf_fragment_page;
         disconnectViewResId = ElfProxy.getInstance().getHook().getDisconnectLayoutId();
-        BusHelper.getBus().register(this);
         rootView = super.onCreateView(inflater,container,savedInstanceState);
 
         presenter = new PagePresenter(this);
@@ -151,11 +151,15 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
 
     @Override
     public void showDisconnect() {
-        if(pageRender==null){
-            super.showDisconnect();
-            /*如果一进来就断网了，显示全屏的断网layout*/
-        }else{
-            /*如果加载更多时候断网，显示列表的断网layout*/
+        /*如果一进来就断网，或者reload时候断网，显示全屏断网layout*/
+        super.showDisconnect();
+    }
+
+    @Override
+    public void showLoadingError() {
+        super.showLoadingError();
+        /*如果加载更多时候断网，显示列表的断网layout*/
+        if(pageRender!=null){
             ((WaterfallPageRender) pageRender).showDisconnect();
         }
     }
