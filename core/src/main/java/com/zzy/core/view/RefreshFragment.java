@@ -13,6 +13,7 @@ import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
 import com.zzy.commonlib.core.BusHelper;
 import com.zzy.core.ElfConstact;
+import com.zzy.core.ElfProxy;
 import com.zzy.core.R;
 import com.zzy.core.base.BaseLoadingFragment;
 import com.zzy.core.constact.PageConstact;
@@ -25,7 +26,6 @@ import com.zzy.core.view.render.page.PageGroupRender;
 import com.zzy.core.view.render.page.PageRender;
 import com.zzy.core.view.render.page.WaterfallPageRender;
 import com.zzy.core.view.render.page.impl.BottomRefreshPageRender;
-import com.zzy.core.view.render.page.impl.RefreshPageRender;
 
 import java.util.ArrayList;
 
@@ -34,7 +34,7 @@ import java.util.ArrayList;
  * @date 2018/2/28
  */
 public class RefreshFragment extends BaseLoadingFragment implements PageConstact.View{
-    private static final String TAG = "ElfFragment";
+    private static final String TAG = "RefreshFragment";
     private View rootView;
     private Context context;
     private PagePresenter presenter;
@@ -54,13 +54,15 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.elf_fragment_page, container, false);
+        L.e(TAG,"onCreateView");
         context = getActivity();
+        contentViewResId = R.layout.elf_fragment_page;
+        disconnectViewResId = ElfProxy.getInstance().getHook().getDisconnectLayoutId();
+        BusHelper.getBus().register(this);
+        rootView = super.onCreateView(inflater,container,savedInstanceState);
 
         presenter = new PagePresenter(this);
         presenter.getPageData(context, true,1,dataProvider);
-
-        BusHelper.getBus().register(this);
         return rootView;
     }
 
@@ -108,6 +110,7 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
+        L.e(TAG,"onHiddenChanged pageCode:"+pageCode+" hidden："+hidden);
         if(!hidden){
             if(needReload){
                 needReload = false;
@@ -119,7 +122,6 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
     @Override
     public void onResume() {
         super.onResume();
-
     }
     @Subscribe(thread = EventThread.IMMEDIATE, tags = {@Tag(value = BusConstants.BUS_EVENT_RELOAD_PAGE)})
     public void onReload(String s){
@@ -149,7 +151,12 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
 
     @Override
     public void showDisconnect() {
-        super.showDisconnect();
-        ((WaterfallPageRender) pageRender).showDisconnect();
+        if(pageRender==null){
+            super.showDisconnect();
+            /*如果一进来就断网了，显示全屏的断网layout*/
+        }else{
+            /*如果加载更多时候断网，显示列表的断网layout*/
+            ((WaterfallPageRender) pageRender).showDisconnect();
+        }
     }
 }

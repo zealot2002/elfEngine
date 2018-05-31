@@ -21,10 +21,8 @@ import com.zzy.core.model.Section;
 import com.zzy.core.statis.StatisticsTool;
 import com.zzy.core.utils.L;
 import com.zzy.core.utils.MyExceptionHandler;
-import com.zzy.core.view.inner.MyMultiAdapter;
 import com.zzy.core.view.inner.MyMultiRecycleAdapter;
 import com.zzy.core.view.inner.SpaceItemDecoration;
-import com.zzy.core.view.inner.WaterfallOnScrollListener;
 import com.zzy.core.view.inner.recycleAdapter.OnLoadMoreListener;
 import com.zzy.core.view.render.element.impl.ElementRender;
 import com.zzy.core.view.render.page.WaterfallPageRender;
@@ -60,6 +58,7 @@ public class BottomRefreshPageRender implements WaterfallPageRender<Section> {
 
     @Override
     public void render(ViewGroup container, Page page) {
+        L.d(TAG,"render");
         if(refreshLayout !=null){
             refreshLayout.finishRefresh();
         }
@@ -102,6 +101,7 @@ public class BottomRefreshPageRender implements WaterfallPageRender<Section> {
 
     @Override
     public void appendUpdateData(List<Section> list) {
+        L.e(TAG,"appendUpdateData list:"+list);
         if(list == null
                 ||list.isEmpty()
                 ){
@@ -152,15 +152,21 @@ public class BottomRefreshPageRender implements WaterfallPageRender<Section> {
         recyclerView.addItemDecoration(itemDecoration);
         /*adapter*/
         adapter = new MyMultiRecycleAdapter(context,page.getBody().getDataList(),true);
+
+//        /*设置无数据布局*/
+//        adapter.setEmptyView(R.layout.empty_layout);
+//        把无数据布局看成是普通的template即可，不需要特殊处理
+
+        /*设置加载中布局*/
         adapter.setLoadingView(R.layout.load_loading_layout);
-        //加载失败，更新footer view提示
+        /*设置加载失败布局*/
         adapter.setLoadFailedView(R.layout.load_failed_layout);
-        //加载完成，更新footer view提示
+        /*设置加载完成布局*/
         adapter.setLoadEndView(R.layout.load_end_layout);
 
         //设置不满一屏幕，自动加载第二页
         adapter.openAutoLoadMore();
-        //设置加载更多触发的事件监听
+        //加载更多的事件监听
         adapter.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(boolean isReload) {

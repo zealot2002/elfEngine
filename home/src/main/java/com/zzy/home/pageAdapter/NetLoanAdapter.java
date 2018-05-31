@@ -22,6 +22,8 @@ public class NetLoanAdapter implements ElfConstact.PageAdapter{
                 String data = FileUtils.readFileFromAssets(context,"netLoanFragment.json");
                 Page page = ElfJsonParser.parse(data);
                 callback.onCallback(true,page);
+            }else{
+                callback.onCallback(true,new Page());
             }
         }catch(Exception e){
             e.printStackTrace();

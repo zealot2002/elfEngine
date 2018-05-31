@@ -65,18 +65,18 @@ public class ElfJsonParser {
             page.setBackground(obj.getString("background"));
         }
         if (obj.has("title")) {
-            try{
-                JSONObject titleObj = obj.getJSONObject("title");
+            JSONObject titleObj = obj.getJSONObject("title");
+            if (titleObj.has("templateId")) {
                 Section title = parseSection(titleObj);
                 page.setTitle(title);
-            }catch(Exception e){
-                e.printStackTrace();
             }
         }
         if (obj.has("footer")) {
-            JSONObject titleObj = obj.getJSONObject("footer");
-            Section footer = parseSection(titleObj);
-            page.setFooter(footer);
+            JSONObject footerObj = obj.getJSONObject("footer");
+            if (footerObj.has("templateId")) {
+                Section footer = parseSection(footerObj);
+                page.setFooter(footer);
+            }
         }
         return page;
     }

@@ -32,7 +32,6 @@ public class ImageLoaderUtils {
     }
 
     public void showImg(final Context context, final Uri uri, final View view){
-        L.e(TAG,"uri:"+uri.toString());
         GenericRequestBuilder request =  Glide.with(context)
                 .load(uri)
                 .centerCrop()

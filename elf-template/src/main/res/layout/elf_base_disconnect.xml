@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llDisconnectRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="72dip"
-        android:src="@mipmap/elf_load_failure"
-        />
+        android:src="@mipmap/elf_ic_load_failure" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,7 +21,8 @@
         android:textColor="#FF666666"
         android:textSize="13sp" />
 
-    <TextView
+    <Button
+        android:id="@+id/btnReload"
         android:layout_width="match_parent"
         android:layout_height="48dip"
         android:layout_gravity="center_horizontal"
@@ -32,7 +32,5 @@
         android:background="#C6654D"
         android:text="重试"
         android:textColor="@android:color/white"
-        android:textSize="14sp"
-        android:clickable="false"
-        />
+        android:textSize="14sp" />
 </LinearLayout>

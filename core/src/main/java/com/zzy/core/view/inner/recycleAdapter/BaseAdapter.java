@@ -422,7 +422,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     public void setEmptyView(View emptyView) {
         mEmptyView = emptyView;
     }
-
+    public void setEmptyView(int emptyId) {
+        setEmptyView(Util.inflate(mContext, emptyId));
+    }
     /**
      * 移除emptyView
      */
@@ -441,7 +443,9 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
         mEmptyView = null;
         notifyDataSetChanged();
     }
-
+    public void setReloadView(int reloadId) {
+        setReloadView(Util.inflate(mContext, reloadId));
+    }
     /**
      * 返回 footer view数量
      *

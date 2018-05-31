@@ -30,6 +30,7 @@ public class PagePresenter implements PageConstact.Presenter {
 
     @Override
     public void getPageData(final Context context, boolean bShow,final int pageNum, ElfConstact.PageAdapter adapter) {
+        L.e(TAG,"getPageData pageNum:"+pageNum);
         if (!NetUtils.isNetworkAvailable(context)) {
             //do nothing..just go on
             view.showDisconnect();
@@ -41,13 +42,13 @@ public class PagePresenter implements PageConstact.Presenter {
         adapter.getPageData(context, pageNum, new ElfConstact.Callback() {
             @Override
             public void onCallback(boolean bResult, Object data) {
+                L.e(TAG,"onCallback bResult:"+bResult);
                 view.closeLoading();
                 try{
                     if(bResult){
                         Page page = (Page) data;
                         view.updatePage(page,pageNum);
                     }else {
-                        MyToast.show(context," err:"+data.toString());
                         L.e(TAG,"返回 err:" +data.toString());
                         view.showDisconnect();
                     }

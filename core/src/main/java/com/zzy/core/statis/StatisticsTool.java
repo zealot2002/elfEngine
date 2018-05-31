@@ -14,9 +14,13 @@ import java.util.List;
 public class StatisticsTool {
     private static final String TAG = "StatisticsTool";
     public static void sighElfPage(Page page){
-        sighSectionList(page.getBody().getDataList(),page.getCode());
-        sighTitleOrFooter(page.getTitle(),page.getCode()+"_title");
-        sighTitleOrFooter(page.getFooter(),page.getCode()+"_footer");
+        try{
+            sighSectionList(page.getBody().getDataList(),page.getCode());
+            sighTitleOrFooter(page.getTitle(),page.getCode()+"_title");
+            sighTitleOrFooter(page.getFooter(),page.getCode()+"_footer");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     private static void sighSectionList(List<Section> dataList, String pageCode){
         for(int i=0;i<dataList.size();++i){

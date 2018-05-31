@@ -61,6 +61,11 @@ public class ElfTemplateProxy {
             public void onSetResource(Context context, Uri resourceUri, View view) {
                 mHook.onSetResource(context,resourceUri,view);
             }
+
+            @Override
+            public int getDisconnectLayoutId() {
+                return R.layout.elf_base_disconnect;
+            }
         });
     }
 }

@@ -134,5 +134,10 @@ public interface ElfConstact {
          * @param view
          */
         void onSetResource(Context context, Uri resourceUri, View view);
+
+        /**
+         * app为elf fragment提供无网络layout
+         */
+        int getDisconnectLayoutId();
     }
 }
