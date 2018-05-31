@@ -1,7 +1,7 @@
 {
   "pageType": "singlePage",
   "pageCode": "mine",
-  "background": "color://grey",
+  "background": "color://#e2e2e2",
   "title":{
     "background": "",
     "itemList":

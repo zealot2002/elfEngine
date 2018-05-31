@@ -1,8 +1,11 @@
 package com.zzy.common.elf;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
+import android.support.v4.util.ArrayMap;
 import android.view.View;
+import android.widget.TextView;
 
 import com.zzy.common.R;
 import com.zzy.common.utils.ImageLoaderUtils;
@@ -18,8 +21,7 @@ public class ElfUriHelper {
     public static final String HTTP_IMAGE_URI_PREFIX = "http://";
     public static final String LOCAL_IMAGE_URI_PREFIX = "local://";
     public static final String COLOR_URI_PREFIX = "color://";
-    private HashMap<String,Uri> localImgUriMap;
-    private HashMap<String,Integer> localColorMap;
+    private ArrayMap<String,Uri> localImgUriMap;
     /*******************************************************************************************************/
     public static ElfUriHelper getInstance(){
         return ElfUriHelper.LazyHolder.ourInstance;
@@ -30,18 +32,9 @@ public class ElfUriHelper {
     private ElfUriHelper() {}
     public void init(Context context){
         initImgMap(context);
-        initColorMap(context);
-    }
-
-    private void initColorMap(Context context) {
-        localColorMap = new HashMap<>();
-        localColorMap.put(COLOR_URI_PREFIX +"colorPrimary", R.color.colorPrimary);
-        localColorMap.put(COLOR_URI_PREFIX +"grey", R.color.grey);
-        localColorMap.put(COLOR_URI_PREFIX +"red", R.color.red);
-        localColorMap.put(COLOR_URI_PREFIX +"blue", R.color.blue);
     }
     private void initImgMap(Context context){
-        localImgUriMap = new HashMap<>();
+        localImgUriMap = new ArrayMap<>();
         addImage(context,"title_icon1",R.mipmap.title_icon1);
         addImage(context,"title_icon2",R.mipmap.title_icon2);
         addImage(context,"title_icon3",R.mipmap.title_icon3);
@@ -68,13 +61,6 @@ public class ElfUriHelper {
     private void addImage(Context context,String name,int resId) {
         localImgUriMap.put(LOCAL_IMAGE_URI_PREFIX +name, Uri.parse("android.resource://" + context.getPackageName() + "/" +resId));
     }
-
-    private int getColor(String key){
-        if(localColorMap.containsKey(key)){
-            return localColorMap.get(key);
-        }
-        return R.color.elf_white;
-    }
     private Uri getImgUri(String key){
         if(localImgUriMap.containsKey(key)){
             return localImgUriMap.get(key);
@@ -88,7 +74,9 @@ public class ElfUriHelper {
         }else if(uri.toString().startsWith(ElfUriHelper.LOCAL_IMAGE_URI_PREFIX)){
             ImageLoaderUtils.getInstance().showImg(context, getImgUri(uri.toString()),view);
         }else if(uri.toString().startsWith(ElfUriHelper.COLOR_URI_PREFIX)){
-            view.setBackgroundResource(getColor(uri.toString()));
+            String s = uri.toString();
+            String color = s.substring(ElfUriHelper.COLOR_URI_PREFIX.length(),s.length());
+            view.setBackgroundColor(Color.parseColor(color));
         }
     }
 }
