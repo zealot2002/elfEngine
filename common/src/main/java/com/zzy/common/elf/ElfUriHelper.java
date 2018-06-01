@@ -5,12 +5,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
-import android.widget.TextView;
-
 import com.zzy.common.R;
 import com.zzy.common.utils.ImageLoaderUtils;
-
-import java.util.HashMap;
 
 /**
  * @author zzy

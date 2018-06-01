@@ -58,7 +58,7 @@ public class RefreshFragment extends BaseLoadingFragment implements PageConstact
         BusHelper.getBus().register(this);
         context = getActivity();
         contentViewResId = R.layout.elf_fragment_page;
-        disconnectViewResId = ElfProxy.getInstance().getHook().getDisconnectLayoutId();
+        disconnectViewResId = ElfProxy.getInstance().getHook().getCustomDisconnectLayoutId();
         rootView = super.onCreateView(inflater,container,savedInstanceState);
 
         presenter = new PagePresenter(this);

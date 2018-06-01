@@ -136,8 +136,26 @@ public interface ElfConstact {
         void onSetResource(Context context, Uri resourceUri, View view);
 
         /**
-         * app为elf fragment提供无网络layout
+         * elf fragment全屏幕无网络布局,app定制
          */
-        int getDisconnectLayoutId();
+        int getCustomDisconnectLayoutId();
+
+        /**
+         * elf list底部loading布局,app定制
+         * @return
+         */
+        int getCustomListLoadingLayoutId();
+
+        /**
+         * elf list底部load failed布局,app定制
+         * @return
+         */
+        int getCustomListLoadFailedLayoutId();
+
+        /**
+         * elf list底部load end布局,app定制
+         * @return
+         */
+        int getCustomListLoadEndLayoutId();
     }
 }

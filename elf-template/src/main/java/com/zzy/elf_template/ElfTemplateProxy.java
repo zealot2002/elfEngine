@@ -2,11 +2,11 @@ package com.zzy.elf_template;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 import android.view.View;
 
 import com.zzy.core.ElfConstact;
+import com.zzy.core.ElfProxy;
 import com.zzy.core.model.Page;
 import com.zzy.elf_template.template.engine.Engine;
 import com.zzy.elf_template.template.engine.EngineHelper;
@@ -36,7 +36,7 @@ public class ElfTemplateProxy {
             throw new RuntimeException("You must set hook first!");
         }
         mHook = hook;
-        com.zzy.core.ElfProxy.getInstance().setHook(new ElfConstact.Hook() {
+        ElfProxy.getInstance().setHook(new ElfConstact.Hook() {
             @Override
             public SparseArray<ElfConstact.TemplateRender> getTemplateRenderList(Context context, Page page) {
                 try {
@@ -63,8 +63,23 @@ public class ElfTemplateProxy {
             }
 
             @Override
-            public int getDisconnectLayoutId() {
-                return R.layout.elf_base_disconnect;
+            public int getCustomDisconnectLayoutId() {
+                return R.layout.elf_disconnect;
+            }
+
+            @Override
+            public int getCustomListLoadingLayoutId() {
+                return R.layout.elf_list_loading;
+            }
+
+            @Override
+            public int getCustomListLoadFailedLayoutId() {
+                return R.layout.elf_list_load_failed;
+            }
+
+            @Override
+            public int getCustomListLoadEndLayoutId() {
+                return R.layout.elf_list_load_end;
             }
         });
     }
