@@ -72,7 +72,10 @@ public class HomeActivity extends BaseActivity {
     }
 }
 
-更多介绍：
-https://github.com/zealot2002/elfEngine/wiki/elf-page介绍
+<p>更多介绍<a href="https://github.com/zealot2002/elfEngine/wiki/elf-page介绍">
+查看更多介绍</a>.</p>
+
+
+
 
 ```
