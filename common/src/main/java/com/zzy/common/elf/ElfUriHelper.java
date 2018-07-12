@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.v4.util.ArrayMap;
 import android.view.View;
+
 import com.zzy.common.R;
 import com.zzy.common.utils.ImageLoaderUtils;
 
@@ -32,7 +33,7 @@ public class ElfUriHelper {
     private void initImgMap(Context context){
         localImgUriMap = new ArrayMap<>();
         addImage(context,"title_icon1",R.mipmap.title_icon1);
-        addImage(context,"title_icon2",R.mipmap.title_icon2);
+        addImage(context,"title_icon2", R.mipmap.title_icon2);
         addImage(context,"title_icon3",R.mipmap.title_icon3);
         addImage(context,"grid_icon1",R.mipmap.grid_icon1);
         addImage(context,"grid_icon2",R.mipmap.grid_icon2);

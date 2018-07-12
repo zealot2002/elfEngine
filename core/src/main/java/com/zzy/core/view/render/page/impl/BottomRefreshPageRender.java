@@ -158,11 +158,11 @@ public class BottomRefreshPageRender implements WaterfallPageRender<Section> {
 //        把无数据布局看成是普通的template即可，不需要特殊处理
 
         /*设置加载中布局*/
-        adapter.setLoadingView(R.layout.load_loading_layout);
+        adapter.setLoadingView(ElfProxy.getInstance().getHook().getCustomListLoadingLayoutId());
         /*设置加载失败布局*/
-        adapter.setLoadFailedView(R.layout.load_failed_layout);
+        adapter.setLoadFailedView(ElfProxy.getInstance().getHook().getCustomListLoadFailedLayoutId());
         /*设置加载完成布局*/
-        adapter.setLoadEndView(R.layout.load_end_layout);
+        adapter.setLoadEndView(ElfProxy.getInstance().getHook().getCustomListLoadEndLayoutId());
 
         //设置不满一屏幕，自动加载第二页
         adapter.openAutoLoadMore();
