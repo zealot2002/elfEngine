@@ -73,5 +73,20 @@ public class HomeActivity extends BaseActivity {
 }
 ```
 
+使用到的设计模式：
+1，抽象工厂模式   
+2，工厂方法模式
+3，原型模式
+4，单例模式
+5，Builder模式
+6，Adapter模式
+7，Bridge模式
+8，装饰模式
+9，Proxy模式
+10，外观模式
+11，策略模式
+12，模板模式
+13，组合模式
+
 <p><a href="https://github.com/zealot2002/elfEngine/wiki/elf-page介绍">
 查看更多介绍</a>.</p>
