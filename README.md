@@ -1,8 +1,8 @@
 # elfEngine
 #### Android 页面绘制引擎。旨在最大限度减少android开发者重复性的劳动。
 
-![](https://raw.githubusercontent.com/zealot2002/elfEngine/5039f72a9342ef40a7e42f8ebc1c09a631a0d39c/core/src/main/java/com/screen/elf-page.png) 
-![](https://raw.githubusercontent.com/zealot2002/elfEngine/5039f72a9342ef40a7e42f8ebc1c09a631a0d39c/core/src/main/java/com/screen/elf-page.png) 
+![](https://github.com/zealot2002/elfEngine/blob/master/elfpage2.png) 
+![](https://github.com/zealot2002/elfEngine/blob/master/elfpage1.png) 
 引擎功能：  
 
 1，提供自动化的页面绘制。  
